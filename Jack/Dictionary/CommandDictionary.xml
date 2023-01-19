@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CommandDictionary>
+	<BasicSystemCommands>
+		<StartRecordCommand>
+			<synonym>джек</synonym>
+			<synonym>жек</synonym>
+			<synonym>джейки</synonym>
+			<synonym>джейка</synonym>
+			<synonym>джуйк</synonym>
+			<synonym>джок</synonym>
+			<synonym>дже</synonym>
+			<synonym>джэ</synonym>
+			<synonym>джой</synonym>
+		</StartRecordCommand>
+		<StartCommand>
+			<synonym>открой</synonym>
+			<synonym>откро</synonym>
+			<synonym>откр</synonym>
+			<synonym>запусти</synonym>
+			<synonym>запуст</synonym>
+			<synonym>запус</synonym>
+			<synonym>открывай</synonym>
+			<synonym>поставь</synonym>
+			<synonym>запускай</synonym>
+			<synonym>стартуй</synonym>
+		</StartCommand>
+		<CloseCommand>
+			<synonym>закрой</synonym>
+			<synonym>закрывай</synonym>
+			<synonym>убери</synonym>
+			<synonym>убирай</synonym>
+			<synonym>останови</synonym>
+			<synonym>останавливай</synonym>
+		</CloseCommand>
+		<OnVoiceСommands>
+			<synonym>начни говорить</synonym>
+			<synonym>балакай</synonym>
+			<synonym>разговаривай</synonym>
+			<synonym>озвучивай команды</synonym>
+		</OnVoiceСommands>
+		<CalcCommand>
+			<synonym>калькулятор</synonym>
+			<synonym>Калькуль</synonym>
+			<synonym>Калк</synonym>
+		</CalcCommand>
+		<DeVisibleCommand>
+			<synonym>скрой</synonym>
+			<synonym>скройся</synonym>
+			<synonym>свернись</synonym>
+			<synonym>спрячься</synonym>
+		</DeVisibleCommand>
+		<VisibleCommand>
+			<synonym>разверни</synonym>
+			<synonym>развернись</synonym>
+			<synonym>покажись</synonym>
+		</VisibleCommand>
+		<GoodbyeСommands>
+			<synonym>пока</synonym>
+			<synonym>покедова</synonym>
+			<synonym>заверши работу</synonym>
+			<synonym>завершай работу</synonym>
+			<synonym>гудбай</synonym>
+			<synonym>закрой себя</synonym>
+		</GoodbyeСommands>
+		<OffVoiceСommands>
+			<synonym>перестань говорить</synonym>
+			<synonym>оффнись</synonym>
+			<synonym>не разговаривай</synonym>
+			<synonym>не озвучивай команды</synonym>
+			<synonym>заткнись</synonym>
+			<synonym>замолчи</synonym>
+			<synonym>перестань разговаривать</synonym>
+		</OffVoiceСommands>
+		<OffPCСommands>
+			<synonym>выключи комп</synonym>
+			<synonym>выключи пэка</synonym>
+			<synonym>заверши работу компьютера</synonym>
+			<synonym>заверши работу виндоус</synonym>
+			<synonym>выключи виндоус</synonym>
+		</OffPCСommands>
+		<MediaСommands>
+			<synonym>музыку</synonym>
+			<synonym>музло</synonym>
+			<synonym>трек</synonym>
+			<synonym>трэк</synonym>
+			<synonym>медиа</synonym>
+			<synonym>проигрыватель</synonym>
+			<synonym>композицию</synonym>
+			<synonym>мелодию</synonym>
+		</MediaСommands>
+		<NextСommands>
+			<synonym>следующий</synonym>
+			<synonym>далее</synonym>
+			<synonym>некст</synonym>
+			<synonym>вперед</synonym>
+			<synonym>дальше</synonym>
+			<synonym>следущую</synonym>
+		</NextСommands>
+		<PreviousСommands>
+			<synonym>назад</synonym>
+			<synonym>предыдущий</synonym>
+			<synonym>обратно</synonym>
+			<synonym>прошлый</synonym>
+		</PreviousСommands>
+		<ResumeСommands>
+			<synonym>продолжи</synonym>
+			<synonym>продолжай</synonym>
+			<synonym>восстанови</synonym>
+			<synonym>возобнови</synonym>
+			<synonym>включи</synonym>
+		</ResumeСommands>
+		<StopMediaСommands>
+			<synonym>останавливай</synonym>
+			<synonym>останови</synonym>
+			<synonym>убирай</synonym>
+			<synonym>убери</synonym>
+			<synonym>оффни</synonym>
+			<synonym>заглуши</synonym>
+			<synonym>выключи</synonym>
+			<synonym>на стоп</synonym>
+			<synonym>на паузу</synonym>
+		</StopMediaСommands>
+		<SetСommands>
+			<synonym>установи</synonym>
+			<synonym>устонови</synonym>
+			<synonym>устнви</synonym>
+			<synonym>поставь</synonym>
+			<synonym>примени</synonym>
+			<synonym>устанавливать</synonym>
+		</SetСommands>
+		<AddСommands>
+			<synonym>прибавь</synonym>
+			<synonym>добавь</synonym>
+			<synonym>увеличь</synonym>
+			<synonym>увеличивай</synonym>
+		</AddСommands>
+		<RemoveСommands>
+			<synonym>убавь</synonym>
+			<synonym>убв</synonym>
+			<synonym>уменьши</synonym>
+			<synonym>уменш</synonym>
+			<synonym>убавляй</synonym>
+		</RemoveСommands>
+		<VolumeСommands>
+			<synonym>громкость на</synonym>
+			<synonym>звук на</synonym>
+			<synonym>громкости на</synonym>
+			<synonym>громкст на</synonym>
+			<synonym>звука на</synonym>
+		</VolumeСommands>
+	</BasicSystemCommands>
+</CommandDictionary>

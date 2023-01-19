@@ -1,0 +1,71 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>netcoreapp3.1</TargetFramework>
+		<OutputType>Exe</OutputType>
+		<LangVersion>9.0</LangVersion>
+		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+		<UseWindowsForms>True</UseWindowsForms>
+		<UseWPF>true</UseWPF>
+		<ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
+	</PropertyGroup>
+	<PropertyGroup>
+		<StartupObject />
+	</PropertyGroup>
+	<ItemGroup>
+	  <Compile Remove="Assets\Pictures\**" />
+	  <EmbeddedResource Remove="Assets\Pictures\**" />
+	  <None Remove="Assets\Pictures\**" />
+	  <Page Remove="Assets\Pictures\**" />
+	</ItemGroup>
+	<ItemGroup>
+	  <None Remove="Assets\Icons\JackLogo.ico" />
+	</ItemGroup>
+	<ItemGroup>
+		<EmbeddedResource Include="Dictionary\CommandDictionary.xml" />
+		<EmbeddedResource Include="Dictionary\СustomCommand\СustomCommandDictionary.xml" />
+	</ItemGroup>
+	<ItemGroup>
+		<Resource Include="Assets\Icons\DuneAvatar.gif" />
+		<Resource Include="Assets\Icons\JackLogo.ico" />
+	</ItemGroup>
+	<ItemGroup>
+		<Resource Include="Assets\Icons\Synonym.ico" />
+	</ItemGroup>
+	<ItemGroup>
+		<Resource Include="Assets\Icons\NoSelectedFile.ico" />
+	</ItemGroup>
+	<ItemGroup>
+		<Resource Include="Assets\Icons\ProgName.ico" />
+	</ItemGroup>
+	<ItemGroup>
+		<Resource Include="Assets\Icons\ThreeDots.ico" />
+	</ItemGroup>
+	<ItemGroup>
+		<Resource Include="Assets\Icons\Link.ico" />
+	</ItemGroup>
+	<ItemGroup>
+		<Resource Include="Assets\Icons\picture.ico" />
+	</ItemGroup>
+	<ItemGroup>
+		<Resource Include="Assets\Icons\BrowserPage.ico" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="AudioSwitcher.AudioApi.CoreAudio" Version="3.0.0.1" />
+		<PackageReference Include="Braintree" Version="5.13.0" />
+		<PackageReference Include="CommonServiceLocator" Version="2.0.6" />
+		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
+		<PackageReference Include="HandyControl" Version="3.3.0" />
+		<PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+		<PackageReference Include="MvvmLightLibs" Version="5.1.0" />
+		<PackageReference Include="NAudio" Version="2.1.0" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+		<PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
+		<PackageReference Include="System.Runtime.InteropServices" Version="4.3.0" />
+		<PackageReference Include="System.Speech" Version="6.0.0" />
+		<PackageReference Include="Vosk" Version="0.3.38" />
+		<PackageReference Include="Microsoft.Windows.Compatibility" Version="6.0.0" />
+	</ItemGroup>
+	<ItemGroup>
+	  <ProjectReference Include="..\PluginInterface\PluginInterface.csproj" />
+	</ItemGroup>
+</Project>

@@ -1,0 +1,315 @@
+﻿<Page x:Class="Jack.Pages.SettingsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:hc="https://handyorg.github.io/handycontrol"
+      xmlns:local="clr-namespace:Jack.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="485" d:DesignWidth="516"
+      Title="SettingsPage">
+
+    <Grid>
+        <Border CornerRadius="5" Background="#99131314">
+            <Grid>
+                <ScrollViewer>
+                    <Grid Margin="10 5 0 0">
+                        <StackPanel Orientation="Vertical">
+
+                            <Label Margin="-7 0 0 0"
+                                   Style="{DynamicResource BaseStyle}" 
+                                   Foreground="White"
+                                   FontWeight="Bold"
+                                   FontSize="17"
+                                   Content="Данные"/>
+
+                            <Border CornerRadius="5" Margin="0 0 10 0">
+                                <Border.Background>
+                                    <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+                                        <GradientStop Color="#2b2b2b" Offset="0"/>
+                                    </LinearGradientBrush>
+                                </Border.Background>
+                                <Grid>
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="360"/>
+                                        <ColumnDefinition Width="130"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <StackPanel Orientation="Horizontal" 
+                                                Grid.Column="0">
+                                        <Path Data="{DynamicResource ImportData}"
+                                              VerticalAlignment="Center"
+                                              Margin="7 0 0 0"
+                                              Height="30"
+                                              Width="23"
+                                              Fill="White"
+                                              RenderTransformOrigin="0.5, 0.5" Stretch="Fill">
+                                            <Path.RenderTransform>
+                                                <ScaleTransform ScaleX="1.0" ScaleY="1.0"/>
+                                            </Path.RenderTransform>
+                                        </Path>
+                                        <StackPanel Orientation="Vertical">
+                                            <Label Background="Transparent" 
+                                                   Foreground="White"
+                                                   VerticalAlignment="Center"
+                                                   FontWeight="Black"
+                                                   BorderBrush="Transparent" 
+                                                   Content="Импорт данных&#x0a;Выберите файл с расширением '.dune'"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                    <Grid Grid.Column="1">
+                                        <Button x:Name="ImportDataButton"
+                                                Click="ImportDataButton_Click"
+                                                Background="#454545"
+                                                VerticalAlignment="Center"
+                                                HorizontalAlignment="Center"
+                                                Foreground="White"
+                                                BorderThickness="0"
+                                                FontWeight="Bold"
+                                                Content="Выбрать файл"
+                                                Width="122"
+                                                Height="30"/>
+                                    </Grid>
+                                </Grid>
+                            </Border>
+
+                            <Border CornerRadius="5" Margin="0 5 10 0">
+                                <Border.Background>
+                                    <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+                                        <GradientStop Color="#2b2b2b" Offset="0"/>
+                                    </LinearGradientBrush>
+                                </Border.Background>
+                                <Grid>
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="360"/>
+                                        <ColumnDefinition Width="130"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <StackPanel Orientation="Horizontal" 
+                                                Grid.Column="0">
+                                        <Path Data="{DynamicResource ExportData}"
+                                              VerticalAlignment="Center"
+                                              Margin="7 0 0 0"
+                                              Height="30"
+                                              Width="23"
+                                              Fill="White"
+                                              RenderTransformOrigin="0.5, 0.5" Stretch="Fill">
+                                            <Path.RenderTransform>
+                                                <ScaleTransform ScaleX="1.0" ScaleY="1.0"/>
+                                            </Path.RenderTransform>
+                                        </Path>
+                                        <StackPanel Orientation="Vertical">
+                                            <Label Background="Transparent" 
+                                                   Foreground="White"
+                                                   VerticalAlignment="Center"
+                                                   FontWeight="Black"
+                                                   BorderBrush="Transparent" 
+                                                   Content="Экспорт данных&#x0a;Сохранить ваши команды в отдельный файл"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                    <Grid Grid.Column="1">
+                                        <Button x:Name="ExportDataButton"
+                                                Click="ExportDataButton_Click"
+                                                Background="#454545"
+                                                VerticalAlignment="Center"
+                                                HorizontalAlignment="Center"
+                                                Foreground="White"
+                                                BorderThickness="0"
+                                                FontWeight="Bold"
+                                                Content="Сохранить файл"
+                                                Width="122"
+                                                Height="30"/>
+                                    </Grid>
+                                </Grid>
+                            </Border>
+
+                            <!--<Border CornerRadius="5" Margin="0 5 10 0">
+                                <Border.Background>
+                                    <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+                                        <GradientStop Color="#2b2b2b" Offset="0"/>
+                                    </LinearGradientBrush>
+                                </Border.Background>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="401"/>
+                                        <ColumnDefinition Width="100"/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Orientation="Horizontal" Grid.Column="0">
+                                        <Path Data="{DynamicResource AutoSaveData}"
+                                              VerticalAlignment="Center"
+                                              Margin="7 0 0 0"
+                                              Height="25"
+                                              Width="24"
+                                              Fill="White"
+                                              RenderTransformOrigin="0.5, 0.5" Stretch="Fill">
+                                            <Path.RenderTransform>
+                                                <ScaleTransform ScaleX="1.0" ScaleY="1.0"/>
+                                            </Path.RenderTransform>
+                                        </Path>
+                                        <StackPanel Orientation="Vertical">
+                                            <Label Background="Transparent" 
+                                                   VerticalAlignment="Center"
+                                                   Foreground="White"
+                                                   FontWeight="Black"
+                                                   BorderBrush="Transparent" 
+                                                   Content="Сохранение данных&#x0a;Сохранять актуальные команды"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                    <Grid HorizontalAlignment="Center"
+                                          Grid.Column="1"
+                                          VerticalAlignment="Center">
+
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="35"/>
+                                            <ColumnDefinition Width="40"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <Label Style="{DynamicResource BaseStyle}" 
+                                               Grid.Column="0"
+                                               VerticalAlignment="Center"
+                                               HorizontalContentAlignment="Center"
+                                               Foreground="White"
+                                               FontWeight="Black"
+                                               Content="Вкл."/>
+
+                                        <ToggleButton VerticalAlignment="Center" 
+                                                      HorizontalAlignment="Center"
+                                                      IsChecked="True"
+                                                      Grid.Column="1"
+                                                      Style="{StaticResource ToggleButtonSwitch}"/>
+                                    </Grid>
+                                </Grid>
+                            </Border>-->
+
+                            <Label Margin="-7 15 0 0"
+                                   Style="{DynamicResource BaseStyle}" 
+                                   Foreground="White"
+                                   FontWeight="Bold"
+                                   FontSize="17"
+                                   Content="Речь"/>
+
+                            <Border CornerRadius="5" Margin="0 0 10 0">
+                                <Border.Background>
+                                    <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+                                        <GradientStop Color="#2b2b2b" Offset="0"/>
+                                    </LinearGradientBrush>
+                                </Border.Background>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="395"/>
+                                        <ColumnDefinition Width="100"/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Orientation="Horizontal" Grid.Column="0">
+                                        <Path Data="{DynamicResource home}"
+                                              VerticalAlignment="Center"
+                                              Margin="7 0 0 0"
+                                              Height="25"
+                                              Width="25"
+                                              Fill="White"
+                                              RenderTransformOrigin="0.5, 0.5" Stretch="Fill">
+                                            <Path.RenderTransform>
+                                                <ScaleTransform ScaleX="1.0" ScaleY="1.0"/>
+                                            </Path.RenderTransform>
+                                        </Path>
+                                        <StackPanel Orientation="Vertical">
+                                            <Label Background="Transparent" 
+                                                   VerticalAlignment="Center"
+                                                   Foreground="White"
+                                                   FontWeight="Black"
+                                                   BorderBrush="Transparent" 
+                                                   Content="Статус выполнения команды&#x0a;Озвучивать статус заданной команды"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                    <Grid HorizontalAlignment="Center"
+                                          Grid.Column="1"
+                                          VerticalAlignment="Center">
+
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="49"/>
+                                            <ColumnDefinition Width="40"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <Label x:Name="ComandStateLabel" 
+                                               Style="{DynamicResource BaseStyle}" 
+                                               Grid.Column="0"
+                                               VerticalAlignment="Center"
+                                               HorizontalContentAlignment="Left"
+                                               Foreground="White"
+                                               FontWeight="Black"
+                                               Content="Вкл."/>
+
+                                        <ToggleButton VerticalAlignment="Center" 
+                                                      x:Name="ComandStateButton"
+                                                      HorizontalAlignment="Center"
+                                                      IsChecked="True"
+                                                      Grid.Column="1"
+                                                      Click="ToggleButton_Checked"
+                                                      Style="{StaticResource ToggleButtonSwitch}"/>
+                                    </Grid>
+                                </Grid>
+                            </Border>
+
+                            <Border CornerRadius="5" Margin="0 5 10 0">
+                                <Border.Background>
+                                    <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+                                        <GradientStop Color="#2b2b2b" Offset="0"/>
+                                    </LinearGradientBrush>
+                                </Border.Background>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="210"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Orientation="Horizontal" Grid.Column="0">
+                                        <Path Data="{DynamicResource SpeechSpeed}"
+                                              VerticalAlignment="Center"
+                                              Margin="7 0 0 0"
+                                              Height="25"
+                                              Width="25"
+                                              Fill="White"
+                                              RenderTransformOrigin="0.5, 0.5" Stretch="Fill">
+                                            <Path.RenderTransform>
+                                                <ScaleTransform ScaleX="1.0" ScaleY="1.0"/>
+                                            </Path.RenderTransform>
+                                        </Path>
+                                        <StackPanel Orientation="Vertical">
+                                            <Label Background="Transparent" 
+                                                   VerticalAlignment="Center"
+                                                   Foreground="White"
+                                                   FontWeight="Black"
+                                                   BorderBrush="Transparent" 
+                                                   Content="Скорость речи&#x0a;Изменение скорости речи"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                    <Grid HorizontalAlignment="Center"
+                                          Grid.Column="1"
+                                          VerticalAlignment="Center">
+                                        <Slider x:Name="EditSynthesizerRateSlider" 
+                                                Width="260" 
+                                                VerticalAlignment="Center"
+                                                HorizontalAlignment="Center"
+                                                IsSnapToTickEnabled="True"
+                                                IsSelectionRangeEnabled="True"
+                                                hc:TipElement.Visibility="Visible"
+                                                hc:TipElement.Placement="Top"
+                                                TickPlacement="TopLeft"
+                                                Minimum="-10"
+                                                Maximum="10" 
+                                                Value="0" 
+                                                SelectionStart="4" 
+                                                SelectionEnd="10"
+                                                ValueChanged="EditSynthesizerRateSlider_ValueChanged"/>
+                                    </Grid>
+                                </Grid>
+                            </Border>
+
+                        </StackPanel>
+
+                    </Grid>
+                </ScrollViewer>
+            </Grid>
+        </Border>
+    </Grid>
+</Page>
