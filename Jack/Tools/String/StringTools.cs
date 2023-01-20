@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Jack.Core.Settings;
+using PluginInterface;
+using System;
 
 namespace Jack.Tools.StringTLS
 {
@@ -27,6 +29,25 @@ namespace Jack.Tools.StringTLS
             }
 
             return true;
+        }
+
+        public static Int16 GetValueFromStr(String value)
+        {
+            if (String.IsNullOrEmpty(value))
+            {
+                return 0;
+            }
+
+            Int16 result = 0;
+
+            var stringToNumberConvertor = TextToNumberFactory.GetTextToNumberConvertor(new VoiceAssistantSettings().SpeakerCulture);
+
+            foreach (var item in value.Split(' '))
+            {
+                result += (Int16)stringToNumberConvertor.ConvertStringToNumber(item, 90);
+            }
+
+            return result;
         }
 
         /// <summary>

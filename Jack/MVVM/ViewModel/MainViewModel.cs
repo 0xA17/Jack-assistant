@@ -105,8 +105,8 @@ namespace Jack.MVVM.ViewModel
             ProgItem = new ObservableCollection<ProgItemModel>();
             SiteItem = new ObservableCollection<SiteItemModel>();
 
-            //InitUserProgram();
-            //InitUserSite();
+            InitUserProgram();
+            InitUserSite();
 
             AddNewProgram = new Core.Command.RelayCommand(o =>
             {

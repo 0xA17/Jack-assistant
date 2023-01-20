@@ -34,7 +34,8 @@
 		</CloseCommand>
 		<OnVoiceСommands>
 			<synonym>начни говорить</synonym>
-			<synonym>балакай</synonym>
+			<synonym>начни разговаривать</synonym>
+			<synonym>озвучи команды</synonym>
 			<synonym>разговаривай</synonym>
 			<synonym>озвучивай команды</synonym>
 		</OnVoiceСommands>

@@ -1,5 +1,6 @@
 ﻿using NAudio.Wave;
 using PluginInterface;
+using System;
 using System.Globalization;
 using System.IO;
 using System.Speech.AudioFormat;
@@ -43,7 +44,7 @@ namespace Jack.Core.Dune
             return _instance;
         }
 
-        public void Speak(string text, bool exclusive = true)
+        public void Speak(String text, Int16 rate = 0, Boolean exclusive = true)
         {
             if (_instance == null)
                 return;
@@ -58,7 +59,7 @@ namespace Jack.Core.Dune
                 _promptBuilder.StartVoice(new CultureInfo(_speakerLanguage));
                 _promptBuilder.AppendText(text);
                 _promptBuilder.EndVoice();
-                _synthesizer.Rate = 0;
+                _synthesizer.Rate = rate;
                 _synthesizer.Speak(_promptBuilder);
                 _promptBuilder.ClearContent();
 

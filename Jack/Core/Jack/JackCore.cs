@@ -48,7 +48,7 @@ namespace Jack.Core
                 /*FAIL*/
             }
 
-            Dune.SpeechEngine.InitSpeaker();
+            SpeechEngine.InitSpeaker();
         }
     }
 }

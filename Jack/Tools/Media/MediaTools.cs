@@ -1,4 +1,7 @@
 ﻿using AudioSwitcher.AudioApi.CoreAudio;
+using Jack.Core.Settings;
+using Jack.Tools.StringTLS;
+using PluginInterface;
 using System;
 using System.Runtime.InteropServices;
 
@@ -50,27 +53,24 @@ namespace Jack.Tools.Media
                 return false;
             }
 
-            Int32 currentVolume = CurrentVolume();
-            Int32 addVolumeValue = 0;
+            Int16 currentVolume = CurrentVolume();
+            Int16 addVolumeValue = StringTools.GetValueFromStr(data);
 
-            foreach (var item in data.Split(' '))
+            if (addVolumeValue == 0)
             {
-                if (Int32.TryParse(item, out addVolumeValue))
-                {
-                    if (currentVolume + addVolumeValue < 100)
-                    {
-                        SetVolume(currentVolume + addVolumeValue);
-                    }
-                    else
-                    {
-                        SetVolume(100);
-                    }
-
-                    return true;
-                }
+                return false;
             }
 
-            return false;
+            if (currentVolume + addVolumeValue < 100)
+            {
+                SetVolume(currentVolume + addVolumeValue);
+            }
+            else
+            {
+                SetVolume(100);
+            }
+
+            return true;
         }
 
         /// <summary>
@@ -85,27 +85,24 @@ namespace Jack.Tools.Media
                 return false;
             }
 
-            Int32 currentVolume = CurrentVolume();
-            Int32 removeVolumeValue = 0;
+            Int16 currentVolume = CurrentVolume();
+            Int16 removeVolumeValue = StringTools.GetValueFromStr(data);
 
-            foreach (var item in data.Split(' '))
+            if (removeVolumeValue == 0)
             {
-                if (Int32.TryParse(item, out removeVolumeValue))
-                {
-                    if (currentVolume - removeVolumeValue > 0)
-                    {
-                        SetVolume(currentVolume - removeVolumeValue);
-                    }
-                    else
-                    {
-                        SetVolume(0);
-                    }
-
-                    return true;
-                }
+                return false;
             }
 
-            return false;
+            if (currentVolume - removeVolumeValue > 0)
+            {
+                SetVolume(currentVolume - removeVolumeValue);
+            }
+            else
+            {
+                SetVolume(0);
+            }
+
+            return true;
         }
 
         /// <summary>
@@ -120,30 +117,28 @@ namespace Jack.Tools.Media
                 return false;
             }
 
-            UInt32 removeVolumeValue = 0;
+            Int16 removeVolumeValue = StringTools.GetValueFromStr(data);
 
-            foreach (var item in data.Split(' '))
+            if (removeVolumeValue > 100 ||
+                removeVolumeValue < 0)
             {
-                if (UInt32.TryParse(item, out removeVolumeValue))
-                {
-                    SetVolume((Int32)removeVolumeValue);
-
-                    return true;
-                }
+                return false;
             }
 
-            return false;
+            SetVolume(removeVolumeValue);
+
+            return true;
         }
 
         /// <summary>
         /// Возвращает актуальное значение громкости системы.
         /// </summary>
         /// <returns>Актуальное значение громкости системы</returns>
-        private static Int32 CurrentVolume()
+        private static Int16 CurrentVolume()
         {
             var device = new CoreAudioController().DefaultPlaybackDevice;
 
-            return (Int32)device.Volume;
+            return (Int16)device.Volume;
         }
 
         /// <summary>

@@ -12,6 +12,8 @@ using Jack.Tools.Media;
 using Jack.Tools.StringTLS;
 using Jack.Tools.MemoryOperation;
 using Jack.Dictionary.СustomCommand;
+using Braintree;
+using System.Threading;
 
 namespace Jack.Core.Dune
 {
@@ -40,21 +42,21 @@ namespace Jack.Core.Dune
 
         #endregion
 
-        public static void RecEngineSpeechRecognize(Object sender, SpeechRecognizedEventArgs e)
+        public static void RecEngineSpeechRecognize(String result)
         {
             #if DEBUG
                 Stopwatch stopwatch = new Stopwatch();
                 stopwatch.Start();
             #endif
 
-            if (sender is null || e is null)
+            if (String.IsNullOrEmpty(result))
             {
                 return;
             }
 
             try
             {
-                CommandProcessing(e.Result.Text);
+                CommandProcessing(result);
             }
             catch
             {
@@ -63,11 +65,11 @@ namespace Jack.Core.Dune
 
             #if DEBUG
                 stopwatch.Stop();
-                Console.WriteLine($"{stopwatch.Elapsed} - [{e.Result.Text}]");
+                Console.WriteLine($"{stopwatch.Elapsed} - [{result}]");
             #endif
         }
 
-        public static void CommandProcessing(String result)
+        private static void CommandProcessing(String result)
         {
             if (String.IsNullOrEmpty(result))
             {
@@ -144,7 +146,12 @@ namespace Jack.Core.Dune
                 if (XMLTools.TextIsContains(result,
                     CommandDictionary.Elements("BasicSystemCommands").Elements("SetСommands").First()))
                 {
-                    MediaTools.SetUpVolume(result);
+                    if (!MediaTools.SetUpVolume(result))
+                    {
+                        SpeechEngine.GiveSpeackText(StringTools.GiveRandText(AnswerDictionary.VolumeIsBadAnswer), MWInstance.DuneAnswer);
+                        return;
+                    }
+
                     SpeechEngine.GiveSpeackText(StringTools.GiveRandText(AnswerDictionary.VolumeAnswer), MWInstance.DuneAnswer);
                     return;
                 }
@@ -245,6 +252,7 @@ namespace Jack.Core.Dune
                 CommandDictionary.Elements("BasicSystemCommands").Elements("GoodbyeСommands").First()))
             {
                 SpeechEngine.GiveSpeackText(StringTools.GiveRandText(AnswerDictionary.BayAnswer), MWInstance.DuneAnswer);
+                Thread.Sleep(2000);
                 Process.GetCurrentProcess().Kill();
             }
 
