@@ -14,7 +14,9 @@ namespace Jack.MVVM.ViewModel.Pages
     {
         #region Переменные
 
-        private const String Filter = "Dune command (*.dune)|*.dune";
+        private const String Filter = "Dune command (*.jack)|*.jack";
+
+        public const String ComandStateButtonName = "ComandStateButton";
 
         #endregion
 
@@ -36,6 +38,24 @@ namespace Jack.MVVM.ViewModel.Pages
             }
         }
 
+        public static Boolean EditRecognizeState(String buttonName, Boolean isChecked, ToggleButton button = null)
+        {
+            if (String.IsNullOrEmpty(buttonName))
+            {
+                return false;
+            }
+
+            ChangeLabelState(buttonName, isChecked, removeNameLen: 6, addToName: "Label");
+            SpeechEngine.ChangeRecognizeState(isChecked);
+
+            if (button is not null)
+            {
+                button.IsChecked = isChecked;
+            }
+
+            return true;
+        }
+
         public static void ButtonStateChange(ToggleButton sender)
         {
             if (sender is null)
@@ -45,9 +65,8 @@ namespace Jack.MVVM.ViewModel.Pages
 
             switch (sender.Name)
             {
-                case "ComandStateButton":
-                    ChangeLabelState(sender.Name, (Boolean)sender.IsChecked, removeNameLen: 6, addToName: "Label");
-                    SpeechEngine.ChangeRecognizeState();
+                case ComandStateButtonName:
+                    EditRecognizeState(sender.Name, (Boolean)sender.IsChecked);
                     break;
                 default:
                     break;

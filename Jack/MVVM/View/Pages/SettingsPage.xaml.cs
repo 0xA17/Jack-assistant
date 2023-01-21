@@ -47,7 +47,7 @@ namespace Jack.Pages
             SpeechEngine.SetSynthesizerRate((Int16)((Slider)sender).Value);
         }
 
-        private void ToggleButton_Checked(object sender, RoutedEventArgs e)
+        private void ToggleButton_Checked(Object sender, RoutedEventArgs e)
         {
             SettingsPageViewModel.ButtonStateChange((ToggleButton)sender);
         }

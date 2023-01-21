@@ -120,7 +120,7 @@ namespace Jack.Tools.Media
             Int16 removeVolumeValue = StringTools.GetValueFromStr(data);
 
             if (removeVolumeValue > 100 ||
-                removeVolumeValue < 0)
+                removeVolumeValue <= 0)
             {
                 return false;
             }

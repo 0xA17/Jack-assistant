@@ -23,9 +23,9 @@ namespace Jack.Core.Dune
         private static VoiceAssistantSettings AssistantSettings;
         private static AudioOutSingleton _audioOut;
         private static WaveInEvent _waveIn;
-        private static readonly object SyncRoot = new Object();
+        private static readonly Object SyncRoot = new Object();
         private static Int16 SynthesizerRate = 0;
-        public static Boolean RecognizeState = true;
+        private static Boolean RecognizeState = true;
 
         #endregion
 
@@ -221,6 +221,11 @@ namespace Jack.Core.Dune
         public static void ChangeRecognizeState()
         {
             RecognizeState = !RecognizeState;
+        }
+
+        public static void ChangeRecognizeState(Boolean value)
+        {
+            RecognizeState = value;
         }
 
         public static Boolean SetSynthesizerRate(Int16 rate)

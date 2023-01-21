@@ -65,7 +65,7 @@ namespace Jack.MVVM.ViewModel.Windows
                     return false;
                 }
 
-                SpeechEngine.RecognizeState = true;
+                SpeechEngine.ChangeRecognizeState(true);
                 rdMicrophoneOff.Visibility = Visibility.Hidden;
                 rdMicrophoneOn.Visibility = Visibility.Visible;
 
@@ -73,7 +73,7 @@ namespace Jack.MVVM.ViewModel.Windows
             }
 
             SpeechEngine.StopRecognize();
-            SpeechEngine.RecognizeState = false;
+            SpeechEngine.ChangeRecognizeState(false);
             rdMicrophoneOff.Visibility = Visibility.Visible;
             rdMicrophoneOn.Visibility = Visibility.Hidden;
 

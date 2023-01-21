@@ -1,7 +1,10 @@
-﻿using System;
+﻿using Jack.Tools.Web;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Runtime.InteropServices;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -28,7 +31,18 @@ namespace Jack.Tools.MemoryOperation
 
             try
             {
-                Process.Start(path);
+                if (UrlTools.CheckURLIsCorrect(path))
+                {
+                    if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+                    {
+                        path = path.Replace("&", "^&");
+                        Process.Start(new ProcessStartInfo("cmd", $"/c start {path}") { CreateNoWindow = true });
+                    }
+                }
+                else
+                {
+                    Process.Start(path);
+                }
             }
             catch
             {

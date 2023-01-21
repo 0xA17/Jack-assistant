@@ -12,14 +12,14 @@ namespace Jack.Core.Dune
     public class AudioOutSingleton : IAudioOutSingleton
     {
         private static AudioOutSingleton _instance;
-        private static readonly object SyncRoot = new object();
+        private static readonly Object SyncRoot = new Object();
         private readonly SpeechSynthesizer _synthesizer;
         private readonly PromptBuilder _promptBuilder;
         private readonly WaveOut _waveOut;
-        private readonly int _sampleRate;
-        private readonly string _speakerLanguage;
+        private readonly Int32 _sampleRate;
+        private readonly String _speakerLanguage;
 
-        protected AudioOutSingleton(string speakerLanguage, SpeechSynthesizer synthesizer, PromptBuilder promptBuilder,
+        protected AudioOutSingleton(String speakerLanguage, SpeechSynthesizer synthesizer, PromptBuilder promptBuilder,
             WaveOut waveOut, int sampleRate)
         {
             _speakerLanguage = speakerLanguage;
@@ -29,7 +29,7 @@ namespace Jack.Core.Dune
             _sampleRate = sampleRate;
         }
 
-        public static AudioOutSingleton GetInstance(string speakerLanguage, SpeechSynthesizer synthesizer,
+        public static AudioOutSingleton GetInstance(String speakerLanguage, SpeechSynthesizer synthesizer,
             PromptBuilder promptBuilder, WaveOut waveOut, int sampleRate)
         {
             if (_instance != null)
@@ -77,7 +77,7 @@ namespace Jack.Core.Dune
             }
         }
 
-        public void PlayFile(string audioFile, bool exclusive = true)
+        public void PlayFile(String audioFile, Boolean exclusive = true)
         {
             if (_instance == null)
                 return;
@@ -100,7 +100,7 @@ namespace Jack.Core.Dune
             }
         }
 
-        public void PlayDataBuffer(byte[] data, bool exclusive = true)
+        public void PlayDataBuffer(Byte[] data, Boolean exclusive = true)
         {
             if (_instance == null)
                 return;

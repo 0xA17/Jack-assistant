@@ -14,6 +14,8 @@ using Jack.Tools.MemoryOperation;
 using Jack.Dictionary.СustomCommand;
 using Braintree;
 using System.Threading;
+using Jack.MVVM.ViewModel.Pages;
+using Jack.Pages;
 
 namespace Jack.Core.Dune
 {
@@ -165,7 +167,12 @@ namespace Jack.Core.Dune
 
                 if (сustomProgram != null)
                 {
-                    ProcessTools.StartProcess(сustomProgram.Parent.Elements("link").First().Value);
+                    if (!ProcessTools.StartProcess(сustomProgram.Parent.Elements("link").First().Value))
+                    {
+                        SpeechEngine.GiveSpeackText($"{StringTools.GiveRandText(AnswerDictionary.IsNotLaunchAnswer)} {сustomProgram.Value}", MWInstance.DuneAnswer);
+                        return;
+                    }
+
                     SpeechEngine.GiveSpeackText($"{сustomProgram.Value} {StringTools.GiveRandText(AnswerDictionary.LaunchAnswer)}", MWInstance.DuneAnswer);
                     return;
                 }
@@ -174,7 +181,12 @@ namespace Jack.Core.Dune
 
                 if (сustomSite != null)
                 {
-                    ProcessTools.StartProcess(сustomSite.Parent.Elements("link").First().Value);
+                    if (!ProcessTools.StartProcess(сustomSite.Parent.Elements("link").First().Value))
+                    {
+                        SpeechEngine.GiveSpeackText($"{StringTools.GiveRandText(AnswerDictionary.IsNotLaunchAnswer)} {сustomSite.Value}", MWInstance.DuneAnswer);
+                        return;
+                    }
+
                     SpeechEngine.GiveSpeackText($"{сustomSite.Value} {StringTools.GiveRandText(AnswerDictionary.LaunchAnswer)}", MWInstance.DuneAnswer);
                     return;
                 }
@@ -236,16 +248,22 @@ namespace Jack.Core.Dune
             if (XMLTools.TextIsContains(result,
                 CommandDictionary.Elements("BasicSystemCommands").Elements("OffVoiceСommands").First()))
             {
-                SpeechEngine.GiveSpeackText(StringTools.GiveRandText(AnswerDictionary.SilentAnswer), MWInstance.DuneAnswer);
-                SpeechEngine.RecognizeState = false;
+                if (SettingsPageViewModel.EditRecognizeState(SettingsPageViewModel.ComandStateButtonName, false, SettingsPage.GetInstance().ComandStateButton))
+                {
+                    SpeechEngine.ChangeRecognizeState(false);
+                    SpeechEngine.GiveSpeackText(StringTools.GiveRandText(AnswerDictionary.SilentAnswer), MWInstance.DuneAnswer);
+                }
                 return;
             }
 
             if (XMLTools.TextIsContains(result,
                 CommandDictionary.Elements("BasicSystemCommands").Elements("OnVoiceСommands").First()))
             {
-                SpeechEngine.RecognizeState = true;
-                SpeechEngine.GiveSpeackText(StringTools.GiveRandText(AnswerDictionary.OkeyAnswer), MWInstance.DuneAnswer);
+                if (SettingsPageViewModel.EditRecognizeState(SettingsPageViewModel.ComandStateButtonName, true, SettingsPage.GetInstance().ComandStateButton))
+                {
+                    SpeechEngine.ChangeRecognizeState(true);
+                    SpeechEngine.GiveSpeackText(StringTools.GiveRandText(AnswerDictionary.OkeyAnswer), MWInstance.DuneAnswer);
+                }
                 return;
             }
             if (XMLTools.TextIsContains(result,

@@ -5,7 +5,7 @@ namespace Jack.Core.Settings
     public class VoiceAssistantSettings
     {
         //[JsonProperty(Required = Required.Always)]
-        public String ModelFolder = "LightModel";
+        public String ModelFolder = "LightModel";//LightModel//model
         public String SelectedAudioInDevice = "";
         public String SelectedAudioOutDevice = "";
         public Int32 AudioInSampleRate = 16000;
