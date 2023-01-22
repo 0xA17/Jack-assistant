@@ -7,19 +7,214 @@
       xmlns:hc="https://handyorg.github.io/handycontrol"
       mc:Ignorable="d" 
       d:DesignHeight="485" d:DesignWidth="516"
-      Title="HomePage">
+      Title="HomePage"
+      hc:Theme.Skin="Dark">
 
     <Grid>
-        <Border CornerRadius="5" Background="#131314" Opacity="0.75"/>
+        <Border CornerRadius="5" Background="#99131314"/>
 
         <Grid>
             <hc:ScrollViewer Grid.Row="1">
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="210"/>
+                        <RowDefinition Height="260"/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
 
+                    <Grid Grid.Row="0">
+                        <Border CornerRadius="19" 
+                                Margin="7" 
+                                Background="#07ffffff">
+                            <Grid>
+                                <Image Height="290" 
+                                       Source="/Assets/Icons/HomeBackground.png"/>
+
+                                <Grid>
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="255"/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    
+                                    <Label Content="Виртуальный помощник"
+                                           Foreground="White"
+                                           FontWeight="ExtraBlack"
+                                           FontSize="18.6"
+                                           Style="{StaticResource BaseStyle}"
+                                           Margin="5 60 0 0">
+                                        <Label.Effect>
+                                            <DropShadowEffect BlurRadius="17" 
+                                                              Color="#b0b0b0" 
+                                                              ShadowDepth="0"/>
+                                        </Label.Effect>
+                                    </Label>
+                                    <TextBlock Text="«Теперь я позабочусь об этом железе, чтобы расширить спектр возможностей»"
+                                               Foreground="#949494"
+                                               FontWeight="Bold"
+                                               FontSize="16"
+                                               Margin="10 100 0 0"
+                                               TextWrapping="Wrap"/>
+                                </Grid>
+
+                            </Grid>
+                        </Border>
+                        
+                        
+                    </Grid>
+
+                    <Grid Grid.Row="1">
+                        <Border CornerRadius="10" 
+                                Margin="0 0 0 3">
+                            <Grid>
+                                <StackPanel Orientation="Vertical">
+
+                                    <Label Margin="0 5 0 0"
+                                           Style="{DynamicResource BaseStyle}" 
+                                           Foreground="White"
+                                           FontWeight="Bold"
+                                           FontSize="17"
+                                           Content="Мои возможности"/>
+
+                                    <Expander Header="Встроенный команды"
+                                              Margin="7"
+                                              Foreground="White" 
+                                              BorderThickness="1"
+                                              Background="#09ffffff">
+                                        <Border BorderBrush="#3f3f46" 
+                                                BorderThickness="1" 
+                                                Background="#09ffffff">
+
+                                            <Grid>
+                                                <StackPanel Orientation="Vertical">
+                                                    <Border Margin="2" 
+                                                        Style="{StaticResource BorderTipInfo}"
+                                                        Background="#252525">
+                                                        <TextBlock Foreground="White" 
+                                                               FontWeight="Medium"
+                                                               FontSize="12"
+                                                               Text="Test"
+                                                               TextWrapping="Wrap"/>
+                                                    </Border>
+                                                </StackPanel>
+      
+                                            </Grid>
+                                            
+                                        </Border>
+                                    </Expander>
+
+                                    <Expander Header="Программы и файлы"
+                                              Margin="7"
+                                              Foreground="White" 
+                                              BorderThickness="1"
+                                              Background="#09ffffff">
+                                        <Border BorderBrush="#3f3f46" 
+                                                BorderThickness="1" 
+                                                Background="#09ffffff">
+
+                                            <Grid>
+                                                <StackPanel Orientation="Vertical">
+                                                    <Border Margin="2" 
+                                                        Style="{StaticResource BorderTipInfo}"
+                                                        Background="#252525">
+                                                        <TextBlock Foreground="White" 
+                                                               FontWeight="Medium"
+                                                               FontSize="12"
+                                                               Text="Test"
+                                                               TextWrapping="Wrap"/>
+                                                    </Border>
+                                                </StackPanel>
+      
+                                            </Grid>
+                                            
+                                        </Border>
+                                    </Expander>
+
+                                    <Expander Header="Сайты"
+                                              Margin="7"
+                                              Foreground="White" 
+                                              BorderThickness="1"
+                                              Background="#09ffffff">
+                                        <Border BorderBrush="#3f3f46" 
+                                                BorderThickness="1" 
+                                                Background="#09ffffff">
+
+                                            <Grid>
+                                                <StackPanel Orientation="Vertical">
+                                                    <Border Margin="2" 
+                                                        Style="{StaticResource BorderTipInfo}"
+                                                        Background="#252525">
+                                                        <TextBlock Foreground="White" 
+                                                               FontWeight="Medium"
+                                                               FontSize="12"
+                                                               Text="Test"
+                                                               TextWrapping="Wrap"/>
+                                                    </Border>
+                                                </StackPanel>
+      
+                                            </Grid>
+                                            
+                                        </Border>
+                                    </Expander>
+                                    
+                                    <Expander Header="Медиа"
+                                              Margin="7"
+                                              Foreground="White" 
+                                              BorderThickness="1"
+                                              Background="#09ffffff">
+                                        <Border BorderBrush="#3f3f46" 
+                                                BorderThickness="1" 
+                                                Background="#09ffffff">
+
+                                            <Grid>
+                                                <StackPanel Orientation="Vertical">
+                                                    <Border Margin="2" 
+                                                        Style="{StaticResource BorderTipInfo}"
+                                                        Background="#252525">
+                                                        <TextBlock Foreground="White" 
+                                                               FontWeight="Medium"
+                                                               FontSize="12"
+                                                               Text="Test"
+                                                               TextWrapping="Wrap"/>
+                                                    </Border>
+                                                </StackPanel>
+      
+                                            </Grid>
+                                            
+                                        </Border>
+                                    </Expander>
+
+                                    <Expander Header="Курсы валют"
+                                              Margin="7"
+                                              Foreground="White" 
+                                              BorderThickness="1"
+                                              Background="#09ffffff">
+                                        <Border BorderBrush="#3f3f46" 
+                                                BorderThickness="1" 
+                                                Background="#09ffffff">
+
+                                            <Grid>
+                                                <StackPanel Orientation="Vertical">
+                                                    <Border Margin="2" 
+                                                        Style="{StaticResource BorderTipInfo}"
+                                                        Background="#252525">
+                                                        <TextBlock Foreground="White" 
+                                                               FontWeight="Medium"
+                                                               FontSize="12"
+                                                               Text="Test"
+                                                               TextWrapping="Wrap"/>
+                                                    </Border>
+                                                </StackPanel>
+      
+                                            </Grid>
+                                            
+                                        </Border>
+                                    </Expander>
+
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+                    </Grid>
+                    
                 </Grid>
             </hc:ScrollViewer>
         </Grid>

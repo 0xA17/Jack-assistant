@@ -13,7 +13,7 @@
     </Page.DataContext>-->
 
     <Grid>
-        <Border CornerRadius="5" Background="#131314" Opacity="0.75"/>
+        <Border CornerRadius="5" Background="#99131314"/>
 
         <Grid>
 

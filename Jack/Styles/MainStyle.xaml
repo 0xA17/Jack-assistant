@@ -92,37 +92,75 @@
                             </Grid.ColumnDefinitions>
 
                             <!-- Selected  -->
-                            <Border x:Name="btnSelected" Grid.ColumnSpan="2"  CornerRadius="4" Width="210" HorizontalAlignment="Right"/>
+                            <Border x:Name="btnSelected" 
+                                    Grid.ColumnSpan="2"  
+                                    CornerRadius="7" 
+                                    Width="200" 
+                                    HorizontalAlignment="Center">
+                                <Border.Effect>
+                                    <DropShadowEffect BlurRadius="21" 
+                                                      Color="#81bcde" 
+                                                      ShadowDepth="0"/>
+                                </Border.Effect>
+                            </Border>
 
                             <!-- Indicator -->
-                            <Rectangle Name="Indicator" HorizontalAlignment="Left" Width="4" Height="40" VerticalAlignment="Center" RadiusX="2" RadiusY="2"/>
+                            <Rectangle Name="Indicator" 
+                                       HorizontalAlignment="Left" 
+                                       Width="4" 
+                                       Height="40" 
+                                       VerticalAlignment="Center" 
+                                       RadiusX="2" RadiusY="2"/>
 
                             <!-- Icon -->
-                            <Path x:Name="Icon" Data="{Binding Tag, RelativeSource={RelativeSource AncestorType={x:Type RadioButton}}}" Height="26" Width="24" Stretch="None" Fill="{DynamicResource PrimaryGrayColor}" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 5 0"/>
+                            <Path x:Name="Icon" 
+                                  Data="{Binding Tag, RelativeSource={RelativeSource AncestorType={x:Type RadioButton}}}" 
+                                  Height="26" Width="24" 
+                                  Stretch="None" Fill="{DynamicResource PrimaryGrayColor}" 
+                                  VerticalAlignment="Center" 
+                                  HorizontalAlignment="Right" 
+                                  Margin="0 0 0 0"/>
 
                             <!-- Text -->
-                            <TextBlock x:Name="txtName" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="12 0 0 0"
-                                                Grid.Column="1" Text="{TemplateBinding Content}" Foreground="{TemplateBinding Foreground}"
-                                                FontWeight="{TemplateBinding FontWeight}"
-                                                FontSize="{TemplateBinding FontSize}"/>
+                            <TextBlock x:Name="txtName" 
+                                       HorizontalAlignment="Left" 
+                                       VerticalAlignment="Center" Margin="12 0 0 0"
+                                       Grid.Column="1" Text="{TemplateBinding Content}" Foreground="{TemplateBinding Foreground}"
+                                       FontWeight="{TemplateBinding FontWeight}"
+                                       FontSize="{TemplateBinding FontSize}"/>
                         </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="txtName" Property="Foreground" Value="{DynamicResource PrimaryBlueColor}"/>
-                            <Setter TargetName="Icon" Property="Fill" Value="{DynamicResource PrimaryBlueColor}"/>
+                            <Setter TargetName="btnSelected" Property="Background" Value="#50393d45"/>
+                            <Setter TargetName="txtName" Property="Foreground" Value="White"/>
+                            <Setter TargetName="Icon" Property="Fill" Value="White"/>
                            <!-- Optional 
                             <Setter TargetName="Indicator" Property="Fill" Value="red"/>
                             <Setter TargetName="Indicator" Property="Height" Value="20"/>-->
                         </Trigger>
                         <Trigger Property="IsChecked" Value="True">
-                            <Setter TargetName="Icon" Property="Fill" Value="{DynamicResource PrimaryBlueColor}"/>
-                            <Setter TargetName="Indicator" Property="Fill" Value="{DynamicResource PrimaryBlueColor}"/>
-                            <Setter TargetName="Indicator" Property="Height" Value="20"/>
-                            <Setter TargetName="btnSelected" Property="Background" Value="Transparent"/>
-                            <Setter TargetName="txtName" Property="Foreground" Value="{DynamicResource PrimaryBlueColor}"/>
+                            <Setter TargetName="Icon" Property="Fill" Value="White"/>
+                            <Setter TargetName="btnSelected" Property="Background" Value="{DynamicResource PrimaryBlueColor}"/>
+                            <Setter TargetName="txtName" Property="Foreground" Value="White"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
+                    <!--<ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="txtName" Property="Foreground" Value="{DynamicResource PrimaryBlueColor}"/>
+                            <Setter TargetName="Icon" Property="Fill" Value="{DynamicResource PrimaryBlueColor}"/>
+                           --><!-- Optional 
+                            <Setter TargetName="Indicator" Property="Fill" Value="red"/>
+                            <Setter TargetName="Indicator" Property="Height" Value="20"/>--><!--
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter TargetName="Icon" Property="Fill" Value="{DynamicResource PrimaryBlueColor}"/>
+                            <Setter TargetName="Indicator" Property="Fill" Value="{DynamicResource PrimaryBlueColor}"/>
+                            <Setter TargetName="Indicator" Property="Height" Value="25"/>
+                            <Setter TargetName="btnSelected" Property="Background" Value="#08dddddd"/>
+                            <Setter TargetName="txtName" Property="Foreground" Value="{DynamicResource PrimaryBlueColor}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>-->
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

@@ -47,7 +47,7 @@ namespace Jack.Core.Dune
 
             AddSpeechRecogniz();
             SetSynthesizerRate(Byte.MinValue);
-            GiveSpeackText(StringTools.GiveRandText(AnswerDictionary.HelloAnswer), MainWindow.GetInstance().DuneAnswer);
+            //GiveSpeackText(StringTools.GiveRandText(AnswerDictionary.HelloAnswer), MainWindow.GetInstance().DuneAnswer);
             StartRecognize();
         }
 

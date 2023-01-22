@@ -21,7 +21,7 @@
         Loaded="Window_Loaded">
     <Grid>
 
-        <Border CornerRadius="12"
+        <Border CornerRadius="17"
                 BorderThickness="0">
             <!--<Border.BorderBrush>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
@@ -33,7 +33,7 @@
 
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
-                    <GradientStop Color="#99131314" Offset="0"/>
+                    <GradientStop Color="#99151518" Offset="0"/>
                     <!--<GradientStop Color="#1B1448" Offset="0.75"/>-->
                 </LinearGradientBrush>
             </Border.Background>
@@ -203,15 +203,21 @@
                                 <ColumnDefinition Width="38*"/>
                             </Grid.ColumnDefinitions>
                             <TextBlock Text="Jack"
-                               Foreground="White"
-                               FontWeight="Black"
-                               FontSize="20"
-                               Margin="20, -7, 0, 0" Grid.ColumnSpan="2"/>
+                                       Foreground="White"
+                                       FontWeight="Black"
+                                       FontSize="22"
+                                       Margin="20, -10, 0, 0" Grid.ColumnSpan="2">
+                                <TextBlock.Effect>
+                                    <DropShadowEffect BlurRadius="7" 
+                                                      Color="#d9d9d9" 
+                                                      ShadowDepth="0"/>
+                                </TextBlock.Effect>
+                            </TextBlock>
                             <TextBlock Text="Virtual assistant"
-                               Foreground="#949494"
-                               FontWeight="Black"
-                               FontSize="17"
-                               Margin="20, 18, 0, 0" Grid.ColumnSpan="2"/>
+                                       Foreground="#949494"
+                                       FontWeight="Black"
+                                       FontSize="17"
+                                       Margin="20, 18, 0, 0" Grid.ColumnSpan="2"/>
                         </Grid>
 
                         <Grid Grid.Row="2">
@@ -260,18 +266,30 @@
 
                         <Grid Grid.Row="3">
                             <Border Background="#1a2b2a"
-                                    x:Name="MicrophoneBorder"
-                                    Opacity="0.75">
+                                    x:Name="MicrophoneBorder">
                                 <Grid>
-                                    <RadioButton x:Name="rdMicrophoneOn" Style="{DynamicResource RadioButtonStyle}" Tag="{DynamicResource microphoneON}" Margin="16,0,174,0" Click="rdMicrophoneOn_Click"  Height="40" VerticalAlignment="Center"/>
-                                    <RadioButton x:Name="rdMicrophoneOff" Style="{DynamicResource RadioButtonStyle}" Tag="{DynamicResource microphoneOFF}" Margin="17,0,173,0" Click="rdMicrophoneOff_Click"  Height="40" VerticalAlignment="Center" Visibility="Hidden"/>
+                                    <RadioButton x:Name="rdMicrophoneOn" 
+                                                 Style="{DynamicResource RadioButtonStyle}" 
+                                                 Tag="{DynamicResource microphoneON}" 
+                                                 Margin="16,0,174,0" 
+                                                 Click="rdMicrophoneOn_Click"  
+                                                 Height="40" 
+                                                 VerticalAlignment="Center"/>
+                                    <RadioButton x:Name="rdMicrophoneOff" 
+                                                 Style="{DynamicResource RadioButtonStyle}" 
+                                                 Tag="{DynamicResource microphoneOFF}" 
+                                                 Margin="17,0,173,0" 
+                                                 Click="rdMicrophoneOff_Click"  
+                                                 Height="40" 
+                                                 VerticalAlignment="Center" 
+                                                 Visibility="Hidden"/>
                                     <Label x:Name="doneCmdLabel"
-                                       Style="{DynamicResource BaseStyle}"
-                                       VerticalAlignment="Center"
-                                       Content="- Джек слушает команды"
-                                       Foreground="White"
-                                       FontWeight="SemiBold"
-                                       Margin="42,0,24,0" Height="26"/>
+                                           Style="{DynamicResource BaseStyle}"
+                                           VerticalAlignment="Center"
+                                           Content="- Джек слушает команды"
+                                           Foreground="White"
+                                           FontWeight="SemiBold"
+                                           Margin="42,0,24,0" Height="26"/>
                                 </Grid>
                             </Border>
 

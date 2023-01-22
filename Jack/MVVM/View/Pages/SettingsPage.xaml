@@ -55,7 +55,7 @@
                                                    VerticalAlignment="Center"
                                                    FontWeight="Black"
                                                    BorderBrush="Transparent" 
-                                                   Content="Импорт данных&#x0a;Выберите файл с расширением '.dune'"/>
+                                                   Content="Импорт данных&#x0a;Выберите файл с расширением '.jack'"/>
                                         </StackPanel>
                                     </StackPanel>
                                     <Grid Grid.Column="1">

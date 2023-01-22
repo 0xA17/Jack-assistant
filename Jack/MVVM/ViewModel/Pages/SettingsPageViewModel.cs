@@ -14,7 +14,7 @@ namespace Jack.MVVM.ViewModel.Pages
     {
         #region Переменные
 
-        private const String Filter = "Dune command (*.jack)|*.jack";
+        private const String Filter = "Jack command (*.jack)|*.jack";
 
         public const String ComandStateButtonName = "ComandStateButton";
 
