@@ -154,5 +154,16 @@
 			<synonym>громкст</synonym>
 			<synonym>звука</synonym>
 		</VolumeСommands>
+		<IsSaveData>
+			<synonym>сохраняй команды</synonym>
+			<synonym>сохраняй данные</synonym>
+			<synonym>сохрани команды</synonym>
+			<synonym>сохраняй актуальные</synonym>
+		</IsSaveData>
+		<IsNotSaveData>
+			<synonym>не сохраняй команды</synonym>
+			<synonym>не сохраняй данные</synonym>
+			<synonym>не сохраняй актуальные</synonym>
+		</IsNotSaveData>
 	</BasicSystemCommands>
 </CommandDictionary>

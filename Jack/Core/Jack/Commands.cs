@@ -257,7 +257,6 @@ namespace Jack.Core.Dune
             {
                 if (SettingsPageViewModel.EditButtonState(SettingsPageViewModel.ComandStateButtonName, false, SettingsPage.GetInstance().ComandStateButton))
                 {
-                    SpeechEngine.ChangeRecognizeState(false);
                     SpeechEngine.GiveSpeackText(StringTools.GiveRandText(AnswerDictionary.SilentAnswer), MWInstance.DuneAnswer);
                 }
 
@@ -269,12 +268,34 @@ namespace Jack.Core.Dune
             {
                 if (SettingsPageViewModel.EditButtonState(SettingsPageViewModel.ComandStateButtonName, true, SettingsPage.GetInstance().ComandStateButton))
                 {
-                    SpeechEngine.ChangeRecognizeState(true);
                     SpeechEngine.GiveSpeackText(StringTools.GiveRandText(AnswerDictionary.OkeyAnswer), MWInstance.DuneAnswer);
                 }
 
                 return;
             }
+
+            if (XMLTools.TextIsContains(result,
+                CommandDictionary.Elements("BasicSystemCommands").Elements("IsNotSaveData").First()))
+            {
+                if (SettingsPageViewModel.EditButtonState(SettingsPageViewModel.DataSaveButtonName, false, SettingsPage.GetInstance().DataSaveButton))
+                {
+                    SpeechEngine.GiveSpeackText(StringTools.GiveRandText(AnswerDictionary.OkeyAnswer), MWInstance.DuneAnswer);
+                }
+
+                return;
+            }
+
+            if (XMLTools.TextIsContains(result,
+                CommandDictionary.Elements("BasicSystemCommands").Elements("IsSaveData").First()))
+            {
+                if (SettingsPageViewModel.EditButtonState(SettingsPageViewModel.DataSaveButtonName, true, SettingsPage.GetInstance().DataSaveButton))
+                {
+                    SpeechEngine.GiveSpeackText(StringTools.GiveRandText(AnswerDictionary.OkeyAnswer), MWInstance.DuneAnswer);
+                }
+
+                return;
+            }
+
             if (XMLTools.TextIsContains(result,
                 CommandDictionary.Elements("BasicSystemCommands").Elements("GoodbyeСommands").First()))
             {
