@@ -10,6 +10,7 @@
 	</PropertyGroup>
 	<PropertyGroup>
 		<StartupObject />
+		<ApplicationIcon>Assets\Icons\JackLogo.ico</ApplicationIcon>
 	</PropertyGroup>
 	<ItemGroup>
 	  <Compile Remove="Assets\Pictures\**" />

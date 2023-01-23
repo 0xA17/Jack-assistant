@@ -41,8 +41,8 @@
 		</OnVoiceСommands>
 		<CalcCommand>
 			<synonym>калькулятор</synonym>
-			<synonym>Калькуль</synonym>
-			<synonym>Калк</synonym>
+			<synonym>калькуль</synonym>
+			<synonym>калк</synonym>
 		</CalcCommand>
 		<DeVisibleCommand>
 			<synonym>скрой</synonym>

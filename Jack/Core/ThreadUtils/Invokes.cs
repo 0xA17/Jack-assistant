@@ -1,11 +1,109 @@
-﻿using System;
+﻿using Jack.Pages;
+using Jack.Tools.StringTLS;
+using Newtonsoft.Json.Linq;
+using System;
+using System.Threading;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 
 namespace Jack.Core.ThreadUtils
 {
     class Invokes
     {
         #region TextBlock
+
+        public static Boolean UpdateWindowVisibility(SynchronizationContext context, Window window, Visibility visibility)
+        {
+            if (context is null ||
+                window is null)
+            {
+                return false;
+            }
+
+            try
+            {
+                context.Post(state =>
+                {
+                    window.Visibility = visibility;
+                }, null);
+            }
+            catch
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        public static Boolean UpdateButtonChecked(SynchronizationContext context, ToggleButton toggleButton, Boolean isChecked)
+        {
+            if (context is null ||
+                toggleButton is null)
+            {
+                return false;
+            }
+
+            try
+            {
+                context.Post(state =>
+                {
+                    toggleButton.IsChecked = isChecked;
+                }, null);
+            }
+            catch
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        public static Boolean UpdateLabelContext(SynchronizationContext context, Label label, String text)
+        {
+            if (context is null ||
+                label is null ||
+                String.IsNullOrEmpty(text))
+            {
+                return false;
+            }
+
+            try
+            {
+                context.Post(state =>
+                {
+                    label.Content = text;
+                }, null);
+            }
+            catch
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        public static Label GetLabelByName(Page page, String name)
+        {
+            if (page is null ||
+                String.IsNullOrEmpty(name))
+            {
+                return null;
+            }
+
+            Label targetLabelButton = null;
+
+            page.Dispatcher.Invoke((Action)(() =>
+            {
+                try
+                {
+                    targetLabelButton = (Label)page.FindName(name);
+                }
+                catch {/*SKIP*/}
+            }));
+
+            return targetLabelButton;
+        }
 
         public static void EditTextBlock_Text(TextBlock prb, String value)
         {
@@ -24,7 +122,7 @@ namespace Jack.Core.ThreadUtils
             }));
         }
 
-        public static void EditLabel_Text(Label prb, String value)
+        public static void EditLabel_Text(System.Windows.Controls.Label prb, String value)
         {
             if (prb is null || value is null)
             {

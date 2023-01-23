@@ -5,12 +5,14 @@ using Jack.Core;
 using Jack.MVVM.ViewModel;
 using Jack.Style.Blure;
 using Jack.MVVM.ViewModel.Windows;
+using System.Threading;
 
 namespace Jack
 {
     public partial class MainWindow : Window
     {
         private static MainWindow Instance;
+        public static readonly SynchronizationContext _synchronizationContext;
 
         public MainWindow()
         {
@@ -21,12 +23,18 @@ namespace Jack
             new WindowsCore();
             InitNavigateUri();
         }
+
+        static MainWindow()
+        {
+            _synchronizationContext = SynchronizationContext.Current;
+        }
+
         public static MainWindow GetInstance()
         {
             return Instance;
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        private void Window_Loaded(Object sender, RoutedEventArgs e)
         {
             new WindowBlureffect(this, AccentState.ACCENT_ENABLE_BLURBEHIND) { BlurOpacity = 100 };
             MainViewModel.ChangeWindowFrame("HomeNavigation");

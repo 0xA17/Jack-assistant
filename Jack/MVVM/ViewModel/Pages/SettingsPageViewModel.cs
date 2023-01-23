@@ -7,6 +7,7 @@ using System;
 using System.Windows;
 using Jack.Dictionary.СustomCommand;
 using System.Windows.Controls.Primitives;
+using Jack.Core.ThreadUtils;
 
 namespace Jack.MVVM.ViewModel.Pages
 {
@@ -48,12 +49,12 @@ namespace Jack.MVVM.ViewModel.Pages
             ChangeLabelState(buttonName, isChecked, removeNameLen: 6, addToName: "Label");
             SpeechEngine.ChangeRecognizeState(isChecked);
 
-            if (button is not null)
+            if (button is null)
             {
-                button.IsChecked = isChecked;
+                return false;
             }
 
-            return true;
+            return Invokes.UpdateButtonChecked(SettingsPage._synchronizationContext, button, isChecked);
         }
 
         public static void ButtonStateChange(ToggleButton sender)

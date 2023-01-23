@@ -16,6 +16,7 @@ using Braintree;
 using System.Threading;
 using Jack.MVVM.ViewModel.Pages;
 using Jack.Pages;
+using Jack.Core.ThreadUtils;
 
 namespace Jack.Core.Dune
 {
@@ -233,16 +234,22 @@ namespace Jack.Core.Dune
             if (XMLTools.TextIsContains(result,
                 CommandDictionary.Elements("BasicSystemCommands").Elements("DeVisibleCommand").First()))
             {
-                MainWindow.GetInstance().Visibility = Visibility.Collapsed;
-                SpeechEngine.GiveSpeackText("Программа свернута", MWInstance.DuneAnswer);
+                if (Invokes.UpdateWindowVisibility(MainWindow._synchronizationContext, MainWindow.GetInstance(), Visibility.Collapsed))
+                {
+                    SpeechEngine.GiveSpeackText("Программа свернута", MWInstance.DuneAnswer);
+                }
+
                 return;
             }
 
             if (XMLTools.TextIsContains(result,
                 CommandDictionary.Elements("BasicSystemCommands").Elements("VisibleCommand").First()))
             {
-                MainWindow.GetInstance().Visibility = Visibility.Visible;
-                SpeechEngine.GiveSpeackText("Программа развернута", MWInstance.DuneAnswer);
+                if (Invokes.UpdateWindowVisibility(MainWindow._synchronizationContext, MainWindow.GetInstance(), Visibility.Visible))
+                {
+                    SpeechEngine.GiveSpeackText("Программа развернута", MWInstance.DuneAnswer);
+                }
+                
                 return;
             }
             if (XMLTools.TextIsContains(result,
@@ -253,6 +260,7 @@ namespace Jack.Core.Dune
                     SpeechEngine.ChangeRecognizeState(false);
                     SpeechEngine.GiveSpeackText(StringTools.GiveRandText(AnswerDictionary.SilentAnswer), MWInstance.DuneAnswer);
                 }
+
                 return;
             }
 
@@ -264,6 +272,7 @@ namespace Jack.Core.Dune
                     SpeechEngine.ChangeRecognizeState(true);
                     SpeechEngine.GiveSpeackText(StringTools.GiveRandText(AnswerDictionary.OkeyAnswer), MWInstance.DuneAnswer);
                 }
+
                 return;
             }
             if (XMLTools.TextIsContains(result,

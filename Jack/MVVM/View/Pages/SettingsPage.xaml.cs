@@ -4,6 +4,7 @@ using Jack.Core.Windows;
 using Jack.MVVM.Model;
 using Jack.MVVM.ViewModel.Pages;
 using System;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
@@ -18,8 +19,14 @@ namespace Jack.Pages
         #region Переменные
 
         private static SettingsPage Instance;
+        public static readonly SynchronizationContext _synchronizationContext;
 
         #endregion
+
+        static SettingsPage()
+        {
+            _synchronizationContext = SynchronizationContext.Current;
+        }
 
         public SettingsPage()
         {

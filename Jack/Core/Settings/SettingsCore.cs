@@ -30,25 +30,21 @@ namespace Jack.Core
                 return false;
             }
 
-            var targetLabelButton = (Label)settingsPage.FindName(
+            var targetLabelButton = Invokes.GetLabelByName(
+                SettingsPage.GetInstance(),
                 $"{StringTools.RemoveCharacter(toggleButtonName, removeNameLen)}{addToName}");
-
-            if (targetLabelButton is null ||
-                targetLabelButton.Content is null)
-            {
-                return false;
-            }
+            var context = String.Empty;
 
             if (isChecked)
             {
-                targetLabelButton.Content = "Вкл.";
+                context = "Вкл.";
             }
             else
             {
-                targetLabelButton.Content = "Откл.";
+                context = "Откл.";
             }
 
-            return true;
+            return Invokes.UpdateLabelContext(SettingsPage._synchronizationContext, targetLabelButton, context);
         }
     }
 }
