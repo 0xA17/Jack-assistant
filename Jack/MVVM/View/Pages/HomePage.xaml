@@ -151,6 +151,24 @@
                                                                Text="[разверни/развернись/покажись/покажи свое окно]"
                                                                TextWrapping="Wrap"/>
                                                     </Border>
+                                                    <Border Margin="5" 
+                                                            Style="{StaticResource BorderTipPrimary}"
+                                                            Background="#252525">
+                                                        <TextBlock Foreground="White" 
+                                                               FontWeight="Medium"
+                                                               FontSize="14"
+                                                               Text="[сохраняй команды/сохраняй данные/сохраняй актуальные команды]"
+                                                               TextWrapping="Wrap"/>
+                                                    </Border>
+                                                    <Border Margin="5" 
+                                                            Style="{StaticResource BorderTipPrimary}"
+                                                            Background="#252525">
+                                                        <TextBlock Foreground="White" 
+                                                               FontWeight="Medium"
+                                                               FontSize="14"
+                                                               Text="[не сохраняй команды/не сохраняй данные/не сохраняй актуальные]"
+                                                               TextWrapping="Wrap"/>
+                                                    </Border>
                                                 </StackPanel>
       
                                             </Grid>
