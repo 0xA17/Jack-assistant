@@ -1,0 +1,76 @@
+﻿<Window x:Class="Jack.MVVM.View.Windows.StartupWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:hc="https://handyorg.github.io/handycontrol"
+        xmlns:local="clr-namespace:Jack.MVVM.View.Windows"
+        mc:Ignorable="d"
+        ShowInTaskbar="False"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        WindowStartupLocation="CenterScreen"
+        Height="230" Width="400"
+        ResizeMode="NoResize"
+        Background="Transparent"
+        Loaded="Window_Loaded"
+        MouseDown="Window_MouseDown">
+    <Grid>
+        <Border CornerRadius="15"
+                BorderThickness="0">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+                    <GradientStop Color="#131314" Offset="0"/>
+                </LinearGradientBrush>
+            </Border.Background>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="0">
+                    <Image Width="135"
+                           Height="135"
+                           Source="/Assets/Icons/JackLogo.ico"/>
+                </Grid>
+
+                <Grid Grid.Column="1">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0">
+                        <TextBlock Text="Jack assistant"
+                                   Foreground="White"
+                                   FontWeight="UltraBlack"
+                                   FontSize="35"
+                                   Margin="-15 65 0 0"
+                                   HorizontalAlignment="Center">
+                            <TextBlock.Effect>
+                                <DropShadowEffect BlurRadius="10" 
+                                                      Color="#d9d9d9" 
+                                                      ShadowDepth="0"/>
+                            </TextBlock.Effect>
+                        </TextBlock>
+                    </Grid>
+
+                    <Grid Grid.Row="1">
+                        <hc:LoadingLine Foreground="#00f2ff"
+                                        Margin="0 -35 15 35"
+                                        Style="{StaticResource LoadingLineLarge}">
+                            <hc:LoadingLine.Effect>
+                                <DropShadowEffect BlurRadius="35" 
+                                                  Color="#80dbff" 
+                                                  ShadowDepth="0"/>
+                            </hc:LoadingLine.Effect>
+                        </hc:LoadingLine>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

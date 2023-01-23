@@ -35,7 +35,7 @@ namespace Jack.Core
                 /*FAIL*/
             }
 
-            SpeechEngine.InitSpeaker();
+            //SpeechEngine.InitSpeaker();
         }
     }
 }
