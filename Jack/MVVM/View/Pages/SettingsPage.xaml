@@ -125,7 +125,7 @@
                                 </Grid>
                             </Border>
 
-                            <!--<Border CornerRadius="5" Margin="0 5 10 0">
+                            <Border CornerRadius="5" Margin="0 5 10 0">
                                 <Border.Background>
                                     <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
                                         <GradientStop Color="#2b2b2b" Offset="0"/>
@@ -133,7 +133,7 @@
                                 </Border.Background>
                                 <Grid>
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="401"/>
+                                        <ColumnDefinition Width="395"/>
                                         <ColumnDefinition Width="100"/>
                                     </Grid.ColumnDefinitions>
                                     <StackPanel Orientation="Horizontal" Grid.Column="0">
@@ -162,26 +162,29 @@
                                           VerticalAlignment="Center">
 
                                         <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="35"/>
+                                            <ColumnDefinition Width="49"/>
                                             <ColumnDefinition Width="40"/>
                                         </Grid.ColumnDefinitions>
 
-                                        <Label Style="{DynamicResource BaseStyle}" 
+                                        <Label x:Name="DataSaveLabel" 
+                                               Style="{DynamicResource BaseStyle}" 
                                                Grid.Column="0"
                                                VerticalAlignment="Center"
-                                               HorizontalContentAlignment="Center"
+                                               HorizontalContentAlignment="Left"
                                                Foreground="White"
                                                FontWeight="Black"
                                                Content="Вкл."/>
 
                                         <ToggleButton VerticalAlignment="Center" 
+                                                      x:Name="DataSaveButton"
                                                       HorizontalAlignment="Center"
                                                       IsChecked="True"
                                                       Grid.Column="1"
+                                                      Click="ToggleButton_Checked"
                                                       Style="{StaticResource ToggleButtonSwitch}"/>
                                     </Grid>
                                 </Grid>
-                            </Border>-->
+                            </Border>
 
                             <Label Margin="-7 15 0 0"
                                    Style="{DynamicResource BaseStyle}" 

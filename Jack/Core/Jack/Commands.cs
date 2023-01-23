@@ -255,7 +255,7 @@ namespace Jack.Core.Dune
             if (XMLTools.TextIsContains(result,
                 CommandDictionary.Elements("BasicSystemCommands").Elements("OffVoiceСommands").First()))
             {
-                if (SettingsPageViewModel.EditRecognizeState(SettingsPageViewModel.ComandStateButtonName, false, SettingsPage.GetInstance().ComandStateButton))
+                if (SettingsPageViewModel.EditButtonState(SettingsPageViewModel.ComandStateButtonName, false, SettingsPage.GetInstance().ComandStateButton))
                 {
                     SpeechEngine.ChangeRecognizeState(false);
                     SpeechEngine.GiveSpeackText(StringTools.GiveRandText(AnswerDictionary.SilentAnswer), MWInstance.DuneAnswer);
@@ -267,7 +267,7 @@ namespace Jack.Core.Dune
             if (XMLTools.TextIsContains(result,
                 CommandDictionary.Elements("BasicSystemCommands").Elements("OnVoiceСommands").First()))
             {
-                if (SettingsPageViewModel.EditRecognizeState(SettingsPageViewModel.ComandStateButtonName, true, SettingsPage.GetInstance().ComandStateButton))
+                if (SettingsPageViewModel.EditButtonState(SettingsPageViewModel.ComandStateButtonName, true, SettingsPage.GetInstance().ComandStateButton))
                 {
                     SpeechEngine.ChangeRecognizeState(true);
                     SpeechEngine.GiveSpeackText(StringTools.GiveRandText(AnswerDictionary.OkeyAnswer), MWInstance.DuneAnswer);

@@ -17,6 +17,8 @@ namespace Jack.Dictionary.СustomCommand
 
         private static readonly String UserCommandsFilePath;
 
+        public static Boolean IsSaveData = true;
+
         private const String FileName = "UserCommands.xml";
 
         private const String UserCommandAssemblyName = "Jack.Dictionary.СustomCommand.СustomCommandDictionary.xml";
@@ -94,6 +96,11 @@ namespace Jack.Dictionary.СustomCommand
             if (String.IsNullOrEmpty(path))
             {
                 return false;
+            }
+
+            if (!IsSaveData)
+            {
+                return true;
             }
 
             return Commands.СustomCommandDictionaryXML.TrySave(path);

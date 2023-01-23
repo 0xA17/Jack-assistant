@@ -19,6 +19,8 @@ namespace Jack.MVVM.ViewModel.Pages
 
         public const String ComandStateButtonName = "ComandStateButton";
 
+        public const String DataSaveButtonName = "DataSaveButton";
+
         #endregion
 
         public static void ImportUserData()
@@ -39,7 +41,7 @@ namespace Jack.MVVM.ViewModel.Pages
             }
         }
 
-        public static Boolean EditRecognizeState(String buttonName, Boolean isChecked, ToggleButton button = null)
+        public static Boolean EditButtonState(String buttonName, Boolean isChecked, ToggleButton button = null)
         {
             if (String.IsNullOrEmpty(buttonName))
             {
@@ -47,8 +49,19 @@ namespace Jack.MVVM.ViewModel.Pages
             }
 
             ChangeLabelState(buttonName, isChecked, removeNameLen: 6, addToName: "Label");
-            SpeechEngine.ChangeRecognizeState(isChecked);
 
+            switch (buttonName)
+            {
+                case ComandStateButtonName:
+                    SpeechEngine.ChangeRecognizeState(isChecked);
+                    break;
+                case DataSaveButtonName:
+                    UserCommands.IsSaveData = isChecked;
+                    break;
+                default:
+                    return false;
+            }
+            
             if (button is null)
             {
                 return false;
@@ -67,7 +80,10 @@ namespace Jack.MVVM.ViewModel.Pages
             switch (sender.Name)
             {
                 case ComandStateButtonName:
-                    EditRecognizeState(sender.Name, (Boolean)sender.IsChecked);
+                    EditButtonState(sender.Name, (Boolean)sender.IsChecked);
+                    break;
+                case DataSaveButtonName:
+                    EditButtonState(sender.Name, (Boolean)sender.IsChecked);
                     break;
                 default:
                     break;

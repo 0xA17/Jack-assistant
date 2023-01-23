@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Height="321" Width="350" 
         ResizeMode="NoResize"
-        Background="#292B2F" 
+        Background="#343638" 
         ShowInTaskbar="False"
         WindowStyle="None">
 
@@ -123,7 +123,12 @@
                 </Grid.RowDefinitions>
 
                 <Grid Grid.Row="0"
-                      Background="#94105f">
+                      Background="#8400d1">
+                    <Grid.Effect>
+                        <DropShadowEffect BlurRadius="27" 
+                                          Color="#bc47ff" 
+                                          ShadowDepth="0"/>
+                    </Grid.Effect>
 
                     <Label x:Name="NewProgramTitle" 
                            Style="{DynamicResource BaseStyle}"
@@ -272,7 +277,13 @@
                             Content="Отмена" Height="30"
                             Margin="130,16,130,15"
                             Click="CloseButton_Click"
-                            GotKeyboardFocus="PogramSynonyms_GotKeyboardFocus"/>
+                            GotKeyboardFocus="PogramSynonyms_GotKeyboardFocus">
+                        <Button.Effect>
+                            <DropShadowEffect BlurRadius="20" 
+                                              Color="#d1d1d1" 
+                                              ShadowDepth="0"/>
+                        </Button.Effect>
+                    </Button>
                     <Button Style="{DynamicResource ButtonStyle}"
                             BorderBrush="Transparent"
                             Background="#27bae3"
@@ -280,7 +291,13 @@
                             Foreground="White"
                             Content="Сохранить" Height="30"
                             Margin="232,16,28,15"
-                            Click="SaveUserDataButton_Click"/>
+                            Click="SaveUserDataButton_Click">
+                        <Button.Effect>
+                            <DropShadowEffect BlurRadius="20" 
+                                              Color="#80dbff" 
+                                              ShadowDepth="0"/>
+                        </Button.Effect>
+                    </Button>
                     <Button Style="{DynamicResource ButtonStyle}"
                             BorderBrush="Transparent"
                             Background="#d42222"
@@ -288,7 +305,13 @@
                             Foreground="White"
                             Content="Удалить" Height="30"
                             Margin="28,16,232,15"
-                            Click="DeleteProgram"/>
+                            Click="DeleteProgram">
+                        <Button.Effect>
+                            <DropShadowEffect BlurRadius="20" 
+                                              Color="#ff4747" 
+                                              ShadowDepth="0"/>
+                        </Button.Effect>
+                    </Button>
                 </Grid>
 
             </Grid>
