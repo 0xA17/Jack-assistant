@@ -1,7 +1,4 @@
-﻿using Jack.Pages;
-using Jack.Tools.StringTLS;
-using Newtonsoft.Json.Linq;
-using System;
+﻿using System;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
@@ -105,7 +102,7 @@ namespace Jack.Core.ThreadUtils
             return targetLabelButton;
         }
 
-        public static void EditTextBlock_Text(TextBlock prb, String value)
+        public static void UpdateTextBlockText(TextBlock prb, String value)
         {
             if (prb is null || value is null)
             {
@@ -122,7 +119,7 @@ namespace Jack.Core.ThreadUtils
             }));
         }
 
-        public static void EditLabel_Text(System.Windows.Controls.Label prb, String value)
+        public static void UpdateLabelContext(System.Windows.Controls.Label prb, String value)
         {
             if (prb is null || value is null)
             {

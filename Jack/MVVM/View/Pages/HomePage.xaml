@@ -98,7 +98,7 @@
                                             <Grid>
                                                 <StackPanel Orientation="Vertical">
                                                     <Border Margin="5" 
-                                                            Style="{StaticResource BorderTipInfo}"
+                                                            Style="{StaticResource BorderTipPrimary}"
                                                             Background="#252525">
                                                         <TextBlock Foreground="White" 
                                                                FontWeight="Medium"
@@ -107,12 +107,48 @@
                                                                TextWrapping="Wrap"/>
                                                     </Border>
                                                     <Border Margin="5" 
-                                                            Style="{StaticResource BorderTipInfo}"
+                                                            Style="{StaticResource BorderTipPrimary}"
                                                             Background="#252525">
                                                         <TextBlock Foreground="White" 
                                                                FontWeight="Medium"
                                                                FontSize="14"
-                                                               Text="[Открой/запусти/открывай] [калькулятор/калькуль]"
+                                                               Text="[Убери/закрой/закрывай] [калькулятор/калькуль]"
+                                                               TextWrapping="Wrap"/>
+                                                    </Border>
+                                                    <Border Margin="5" 
+                                                            Style="{StaticResource BorderTipDanger}"
+                                                            Background="#252525">
+                                                        <TextBlock Foreground="White" 
+                                                               FontWeight="Medium"
+                                                               FontSize="14"
+                                                               Text="[Перестань говорить/оффнись/не озвучивай команды/заткнись/замолчи]"
+                                                               TextWrapping="Wrap"/>
+                                                    </Border>
+                                                    <Border Margin="5" 
+                                                            Style="{StaticResource BorderTipSuccess}"
+                                                            Background="#252525">
+                                                        <TextBlock Foreground="White" 
+                                                               FontWeight="Medium"
+                                                               FontSize="14"
+                                                               Text="[начни говорить/начни разговаривать/озвучивай команды/разговаривай]"
+                                                               TextWrapping="Wrap"/>
+                                                    </Border>
+                                                    <Border Margin="5" 
+                                                            Style="{StaticResource BorderTipWarning}"
+                                                            Background="#252525">
+                                                        <TextBlock Foreground="White" 
+                                                               FontWeight="Medium"
+                                                               FontSize="14"
+                                                               Text="[скрой себя/скройся/свернись/спрячься/сверни свое окно]"
+                                                               TextWrapping="Wrap"/>
+                                                    </Border>
+                                                    <Border Margin="5" 
+                                                            Style="{StaticResource BorderTipSuccess}"
+                                                            Background="#252525">
+                                                        <TextBlock Foreground="White" 
+                                                               FontWeight="Medium"
+                                                               FontSize="14"
+                                                               Text="[разверни/развернись/покажись/покажи свое окно]"
                                                                TextWrapping="Wrap"/>
                                                     </Border>
                                                 </StackPanel>
@@ -135,12 +171,21 @@
                                             <Grid>
                                                 <StackPanel Orientation="Vertical">
                                                     <Border Margin="5" 
-                                                        Style="{StaticResource BorderTipInfo}"
+                                                        Style="{StaticResource BorderTipSuccess}"
                                                         Background="#252525">
                                                         <TextBlock Foreground="White" 
                                                                FontWeight="Medium"
-                                                               FontSize="12"
-                                                               Text="Test"
+                                                               FontSize="14"
+                                                               Text="[открой/открывай/запусти/стартуй] [«заданные синонимы вашей программы»]"
+                                                               TextWrapping="Wrap"/>
+                                                    </Border>
+                                                    <Border Margin="5" 
+                                                        Style="{StaticResource BorderTipDanger}"
+                                                        Background="#252525">
+                                                        <TextBlock Foreground="White" 
+                                                               FontWeight="Medium"
+                                                               FontSize="14"
+                                                               Text="[закрой/закрывай/останови/останавливай] [«заданные синонимы вашей программы»]"
                                                                TextWrapping="Wrap"/>
                                                     </Border>
                                                 </StackPanel>
@@ -159,6 +204,31 @@
                                         <Border BorderBrush="#3f3f46" 
                                                 BorderThickness="1" 
                                                 Background="#09ffffff">
+                                            <Grid>
+                                                <StackPanel Orientation="Vertical">
+                                                    <Border Margin="5" 
+                                                        Style="{StaticResource BorderTipSuccess}"
+                                                        Background="#252525">
+                                                        <TextBlock Foreground="White" 
+                                                               FontWeight="Medium"
+                                                               FontSize="14"
+                                                               Text="[открой/открывай/запусти/стартуй] [«заданные синонимы вашего сайта»]"
+                                                               TextWrapping="Wrap"/>
+                                                    </Border>
+                                                </StackPanel>
+                                            </Grid>
+                                        </Border>
+                                    </Expander>
+                                    
+                                    <Expander Header="Громкость"
+                                              Margin="7"
+                                              Foreground="White" 
+                                              BorderThickness="1"
+                                              FontWeight="ExtraBlack"
+                                              Background="#09ffffff">
+                                        <Border BorderBrush="#3f3f46" 
+                                                BorderThickness="1" 
+                                                Background="#09ffffff">
 
                                             <Grid>
                                                 <StackPanel Orientation="Vertical">
@@ -167,17 +237,33 @@
                                                         Background="#252525">
                                                         <TextBlock Foreground="White" 
                                                                FontWeight="Medium"
-                                                               FontSize="12"
-                                                               Text="Test"
+                                                               FontSize="14"
+                                                               Text="[установи/поставь/примени] [громкость/звук] на [ваше значение]"
                                                                TextWrapping="Wrap"/>
                                                     </Border>
+                                                    <Border Margin="5" 
+                                                        Style="{StaticResource BorderTipSuccess}"
+                                                        Background="#252525">
+                                                        <TextBlock Foreground="White" 
+                                                               FontWeight="Medium"
+                                                               FontSize="14"
+                                                               Text="[прибавь/добавь/увеличь] [громкость/звук] на [ваше значение]"
+                                                               TextWrapping="Wrap"/>
+                                                    </Border>
+                                                    <Border Margin="5" 
+                                                        Style="{StaticResource BorderTipDanger}"
+                                                        Background="#252525">
+                                                        <TextBlock Foreground="White" 
+                                                               FontWeight="Medium"
+                                                               FontSize="14"
+                                                               Text="[убавь/уменьши/убавляй] [громкость/звук] на [ваше значение]"
+                                                               TextWrapping="Wrap"/>
+                                                    </Border>
+                                                    
                                                 </StackPanel>
-      
                                             </Grid>
-                                            
                                         </Border>
                                     </Expander>
-                                    
                                     <Expander Header="Медиа"
                                               Margin="7"
                                               Foreground="White" 
@@ -195,8 +281,35 @@
                                                         Background="#252525">
                                                         <TextBlock Foreground="White" 
                                                                FontWeight="Medium"
-                                                               FontSize="12"
-                                                               Text="Test"
+                                                               FontSize="14"
+                                                               Text="[следущую/дальше/вперед/следующий] [музыку/музло/трек/мелодию/композицию]"
+                                                               TextWrapping="Wrap"/>
+                                                    </Border>
+                                                    <Border Margin="5" 
+                                                        Style="{StaticResource BorderTipPrimary}"
+                                                        Background="#252525">
+                                                        <TextBlock Foreground="White" 
+                                                               FontWeight="Medium"
+                                                               FontSize="14"
+                                                               Text="[назад/предыдущий/обратно/прошлый] [музыку/музло/трек/мелодию/композицию]"
+                                                               TextWrapping="Wrap"/>
+                                                    </Border>
+                                                    <Border Margin="5" 
+                                                        Style="{StaticResource BorderTipSuccess}"
+                                                        Background="#252525">
+                                                        <TextBlock Foreground="White" 
+                                                               FontWeight="Medium"
+                                                               FontSize="14"
+                                                               Text="[продолжи/продолжай/восстанови/возобнови/включи] [музыку/музло/трек/мелодию/композицию]"
+                                                               TextWrapping="Wrap"/>
+                                                    </Border>
+                                                    <Border Margin="5" 
+                                                        Style="{StaticResource BorderTipWarning}"
+                                                        Background="#252525">
+                                                        <TextBlock Foreground="White" 
+                                                               FontWeight="Medium"
+                                                               FontSize="14"
+                                                               Text="[останови/убирай/убери/оффни/выключи] [музыку/музло/трек/мелодию/композицию]"
                                                                TextWrapping="Wrap"/>
                                                     </Border>
                                                 </StackPanel>
@@ -223,7 +336,7 @@
                                                         Background="#252525">
                                                         <TextBlock Foreground="White" 
                                                                FontWeight="Medium"
-                                                               FontSize="12"
+                                                               FontSize="14"
                                                                Text="Test"
                                                                TextWrapping="Wrap"/>
                                                     </Border>

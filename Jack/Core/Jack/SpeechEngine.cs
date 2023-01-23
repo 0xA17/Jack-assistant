@@ -321,7 +321,7 @@ namespace Jack.Core.Dune
                 return;
             }
 
-            Invokes.EditTextBlock_Text(textBlock, text);
+            Invokes.UpdateTextBlockText(textBlock, text);
 
             if (RecognizeState)
             {
@@ -335,7 +335,7 @@ namespace Jack.Core.Dune
             }
 
             Thread.Sleep(100);
-            Invokes.EditTextBlock_Text(textBlock, "...");
+            Invokes.UpdateTextBlockText(textBlock, "...");
         }
 
         private static Boolean SynthesizerSpeack(String text)
