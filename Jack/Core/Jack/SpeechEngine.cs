@@ -20,7 +20,6 @@ namespace Jack.Core.Dune
 
         private static VoskRecognizer _voiceRecognition;
         private static WaveOut _waveOut;
-        private static VoiceAssistantSettings AssistantSettings;
         private static AudioOutSingleton _audioOut;
         private static WaveInEvent _waveIn;
         private static readonly Object SyncRoot = new Object();
@@ -31,7 +30,6 @@ namespace Jack.Core.Dune
 
         static SpeechEngine()
         {
-            AssistantSettings = new VoiceAssistantSettings();
             SetDefoltInputDevice();
             SetDefoltOutDevice();
 
@@ -89,20 +87,20 @@ namespace Jack.Core.Dune
 
         private static VoskRecognizer InitSpeechToText()
         {
-            Vosk.Vosk.SetLogLevel(AssistantSettings.VoskLogLevel);
+            Vosk.Vosk.SetLogLevel(VoiceAssistantSettings.VoskLogLevel);
             VoskRecognizer rec;
 
-            if (!Directory.Exists(AssistantSettings.ModelFolder))
+            if (!Directory.Exists(VoiceAssistantSettings.ModelFolder))
             {
-                Console.WriteLine($"Voice recognition model folder missing: {AssistantSettings.ModelFolder}");
+                Console.WriteLine($"Voice recognition model folder missing: {VoiceAssistantSettings.ModelFolder}");
 
                 return null;
             }
 
             try
             {
-                var model = new Model(AssistantSettings.ModelFolder);
-                rec = new VoskRecognizer(model, AssistantSettings.AudioInSampleRate);
+                var model = new Model(VoiceAssistantSettings.ModelFolder);
+                rec = new VoskRecognizer(model, VoiceAssistantSettings.AudioInSampleRate);
             }
             catch (Exception ex)
             {
@@ -129,17 +127,17 @@ namespace Jack.Core.Dune
                 var info = voice.VoiceInfo;
                 Console.WriteLine($"- Id: {info.Id} | Name: {info.Name} | Age: {info.Age} | Gender: {info.Gender} | Culture: {info.Culture} ");
 
-                if (!String.IsNullOrEmpty(AssistantSettings.VoiceName))
+                if (!String.IsNullOrEmpty(VoiceAssistantSettings.VoiceName))
                 {
-                    if (info.Name == AssistantSettings.VoiceName)
+                    if (info.Name == VoiceAssistantSettings.VoiceName)
                     {
-                        synthesizer.SelectVoice(AssistantSettings.VoiceName);
+                        synthesizer.SelectVoice(VoiceAssistantSettings.VoiceName);
                         voiceSelected = true;
                     }
                 }
                 if (!voiceSelected
-                    && !String.IsNullOrEmpty(AssistantSettings.SpeakerCulture)
-                    && info.Culture.Name.StartsWith(AssistantSettings.SpeakerCulture))
+                    && !String.IsNullOrEmpty(VoiceAssistantSettings.SpeakerCulture)
+                    && info.Culture.Name.StartsWith(VoiceAssistantSettings.SpeakerCulture))
                 {
                     synthesizer.SelectVoice(info.Name);
                 }
@@ -148,7 +146,7 @@ namespace Jack.Core.Dune
             var builder = new PromptBuilder();
             Console.WriteLine($"Selected voice: {synthesizer.Voice.Name}");
 
-            return AudioOutSingleton.GetInstance(AssistantSettings.SpeakerCulture, synthesizer, builder, waveOut, AssistantSettings.AudioOutSampleRate);
+            return AudioOutSingleton.GetInstance(VoiceAssistantSettings.SpeakerCulture, synthesizer, builder, waveOut, VoiceAssistantSettings.AudioOutSampleRate);
         }
 
         private static WaveInEvent InitAudioInput()
@@ -164,8 +162,8 @@ namespace Jack.Core.Dune
                 recordInputs.Add(n, caps.ProductName);
                 Console.WriteLine($"- {n}: {caps.ProductName}");
 
-                if (!String.IsNullOrEmpty(AssistantSettings.SelectedAudioInDevice) &&
-                    caps.ProductName.StartsWith(AssistantSettings.SelectedAudioInDevice))
+                if (!String.IsNullOrEmpty(VoiceAssistantSettings.SelectedAudioInDevice) &&
+                    caps.ProductName.StartsWith(VoiceAssistantSettings.SelectedAudioInDevice))
                 {
                     selectedDevice = n;
                 }
@@ -176,7 +174,7 @@ namespace Jack.Core.Dune
             var waveIn = new WaveInEvent
             {
                 DeviceNumber = selectedDevice,
-                WaveFormat = new WaveFormat(AssistantSettings.AudioInSampleRate, 1)
+                WaveFormat = new WaveFormat(VoiceAssistantSettings.AudioInSampleRate, 1)
             };
 
             Console.WriteLine($"Selected input device: {inDevice}");
@@ -198,8 +196,8 @@ namespace Jack.Core.Dune
                 recordOutputs.Add(n, caps.ProductName);
                 Console.WriteLine($"- {n}: {caps.ProductName}");
 
-                if (!string.IsNullOrEmpty(AssistantSettings.SelectedAudioOutDevice) &&
-                    caps.ProductName.StartsWith(AssistantSettings.SelectedAudioOutDevice))
+                if (!string.IsNullOrEmpty(VoiceAssistantSettings.SelectedAudioOutDevice) &&
+                    caps.ProductName.StartsWith(VoiceAssistantSettings.SelectedAudioOutDevice))
                 {
                     selectedDevice = n;
                 }
@@ -281,6 +279,11 @@ namespace Jack.Core.Dune
         {
             if (String.IsNullOrEmpty(answer) || 
                 textBlock is null)
+            {
+                return;
+            }
+
+            if (!RecognizeState)
             {
                 return;
             }

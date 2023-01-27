@@ -350,12 +350,12 @@
                                             <Grid>
                                                 <StackPanel Orientation="Vertical">
                                                     <Border Margin="5" 
-                                                        Style="{StaticResource BorderTipInfo}"
+                                                        Style="{StaticResource BorderTipWarning}"
                                                         Background="#252525">
                                                         <TextBlock Foreground="White" 
                                                                FontWeight="Medium"
                                                                FontSize="14"
-                                                               Text="Test"
+                                                               Text="[курс/стоимость] [доллара/евро/тенге/юань]"
                                                                TextWrapping="Wrap"/>
                                                     </Border>
                                                 </StackPanel>

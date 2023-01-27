@@ -17,6 +17,7 @@ using System.Threading;
 using Jack.MVVM.ViewModel.Pages;
 using Jack.Pages;
 using Jack.Core.ThreadUtils;
+using Jack.Core.VoiceFunctions.Currency;
 
 namespace Jack.Core.Dune
 {
@@ -259,6 +260,13 @@ namespace Jack.Core.Dune
                 {
                     SpeechEngine.GiveSpeackText(StringTools.GiveRandText(AnswerDictionary.SilentAnswer), MWInstance.DuneAnswer);
                 }
+
+                return;
+            }
+            if (XMLTools.TextIsContains(result,
+                CommandDictionary.Elements("Сurrency").Elements("Course").First()))
+            {
+                SpeechEngine.GiveSpeackText(RateCurrency.GetRateCurrencyAnswer(result), MWInstance.DuneAnswer);
 
                 return;
             }

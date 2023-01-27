@@ -40,7 +40,7 @@ namespace Jack.Tools.StringTLS
 
             Int16 result = 0;
 
-            var stringToNumberConvertor = TextToNumberFactory.GetTextToNumberConvertor(new VoiceAssistantSettings().SpeakerCulture);
+            var stringToNumberConvertor = TextToNumberFactory.GetTextToNumberConvertor(VoiceAssistantSettings.SpeakerCulture);
 
             foreach (var item in value.Split(' '))
             {

@@ -165,5 +165,41 @@
 			<synonym>не сохраняй данные</synonym>
 			<synonym>не сохраняй актуальные</synonym>
 		</IsNotSaveData>
+		
+		<TEST>
+			<synonym>none</synonym>
+		</TEST>
 	</BasicSystemCommands>
+	<Сurrency>
+		<USD>
+			<synonym>доллар</synonym>
+			<synonym>долар</synonym>
+			<synonym>доллор</synonym>
+			<synonym>долор</synonym>
+		</USD>
+		<EUR>
+			<synonym>евро</synonym>
+			<synonym>евра</synonym>
+			<synonym>евера</synonym>
+		</EUR>
+		<KZT>
+			<synonym>тенге</synonym>
+			<synonym>тэнгэ</synonym>
+			<synonym>тенгэ</synonym>
+			<synonym>тэнге</synonym>
+		</KZT>
+		<CNY>
+			<synonym>юань</synonym>
+			<synonym>ань</synonym>
+			<synonym>юан</synonym>
+			<synonym>юн</synonym>
+		</CNY>
+		<Course>
+			<synonym>курс</synonym>
+			<synonym>кус</synonym>
+			<synonym>стоимость</synonym>
+			<synonym>стоимос</synonym>
+			<synonym>тоимость</synonym>
+		</Course>
+	</Сurrency>
 </CommandDictionary>
