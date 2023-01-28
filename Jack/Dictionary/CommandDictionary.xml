@@ -164,6 +164,7 @@
 			<synonym>не сохраняй команды</synonym>
 			<synonym>не сохраняй данные</synonym>
 			<synonym>не сохраняй актуальные</synonym>
+			<synonym>не сохраня</synonym>
 		</IsNotSaveData>
 	</BasicSystemCommands>
 	<Сurrency>

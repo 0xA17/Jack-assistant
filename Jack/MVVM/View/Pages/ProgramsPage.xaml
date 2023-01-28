@@ -25,15 +25,9 @@
             <Grid Grid.Row="0">
                 <Border Background="#171827">
                     <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="450"/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-
-                        <Label x:Name="UsernameTitle" 
-                               Grid.Column="0"
+                        <Label x:Name="UsernameTitle"
                                Style="{DynamicResource TextBoxNewStyle}" 
-                               Content="Список программ и файлов для взаимодействия"
+                               Content="Список программ и файлов"
                                Foreground="#b3b3b3"
                                FontWeight="Black"
                                FontSize="17"
@@ -43,12 +37,12 @@
                         <RadioButton x:Name="rdNewUserProgram" 
                                      Grid.Column="1"
                                      VerticalAlignment="Top"
-                                     HorizontalAlignment="Left" 
+                                     HorizontalAlignment="Right" 
                                      Style="{DynamicResource RadioButtonStyleTwo}" 
                                      Tag="{DynamicResource AddNewItem}" 
                                      Height="24" Width="23"
                                      Command="{Binding AddNewProgram}" 
-                                     Margin="13,15,0,0">
+                                     Margin="0,15,30,0">
                             <RadioButton.RenderTransform>
                                 <ScaleTransform ScaleX="1.7" ScaleY="1.7"/>
                             </RadioButton.RenderTransform>

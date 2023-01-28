@@ -29,7 +29,7 @@
                            FontWeight="Black"
                            FontSize="17"
                            Margin="5,0,5,0"
-                               HorizontalAlignment="Center"
+                           HorizontalAlignment="Center"
                            VerticalAlignment="Center"/>
                         <RadioButton x:Name="rdNewUserProgram" 
                                      HorizontalAlignment="Left" 
