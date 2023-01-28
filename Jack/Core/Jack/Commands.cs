@@ -18,6 +18,7 @@ using Jack.MVVM.ViewModel.Pages;
 using Jack.Pages;
 using Jack.Core.ThreadUtils;
 using Jack.Core.VoiceFunctions.Currency;
+using Jack.Core.VoiceFunctions.Browser;
 
 namespace Jack.Core.Dune
 {
@@ -93,6 +94,21 @@ namespace Jack.Core.Dune
             {
                 SpeechEngine.GiveSpeackText($"{StringTools.GiveRandText(AnswerDictionary.OffPCAnswer)}", MWInstance.DuneAnswer);
                 //ProcessTools.TurnOffPC();
+            }
+
+            {
+                var browserFindNode = CommandDictionary.Elements("Browser").Elements("Find").First();
+
+                if (XMLTools.TextIsContains(result,
+                    browserFindNode))
+                {
+                    if (BrowserTools.InitBrowserSearch(result, browserFindNode))
+                    {
+                        SpeechEngine.GiveSpeackText(StringTools.GiveRandText(AnswerDictionary.IsFound), MWInstance.DuneAnswer);
+                    }
+
+                    return;
+                }
             }
 
             if (XMLTools.TextIsContains(result,
@@ -183,7 +199,7 @@ namespace Jack.Core.Dune
 
                 if (сustomSite != null)
                 {
-                    if (!ProcessTools.StartProcess(сustomSite.Parent.Elements("link").First().Value))
+                    if (!ProcessTools.StartProcessInfo(сustomSite.Parent.Elements("link").First().Value))
                     {
                         SpeechEngine.GiveSpeackText($"{StringTools.GiveRandText(AnswerDictionary.IsNotLaunchAnswer)} {сustomSite.Value}", MWInstance.DuneAnswer);
                         return;
@@ -253,6 +269,7 @@ namespace Jack.Core.Dune
                 
                 return;
             }
+
             if (XMLTools.TextIsContains(result,
                 CommandDictionary.Elements("BasicSystemCommands").Elements("OffVoiceСommands").First()))
             {
@@ -263,6 +280,7 @@ namespace Jack.Core.Dune
 
                 return;
             }
+
             if (XMLTools.TextIsContains(result,
                 CommandDictionary.Elements("Сurrency").Elements("Course").First()))
             {

@@ -31,18 +31,31 @@ namespace Jack.Tools.MemoryOperation
 
             try
             {
-                if (UrlTools.CheckURLIsCorrect(path))
+                Process.Start(path);
+            }
+            catch
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        public static Boolean StartProcessInfo(String url, Boolean createNoWindow = true)
+        {
+            if (String.IsNullOrEmpty(url))
+            {
+                return false;
+            }
+
+            try
+            {
+                if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
                 {
-                    if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-                    {
-                        path = path.Replace("&", "^&");
-                        Process.Start(new ProcessStartInfo("cmd", $"/c start {path}") { CreateNoWindow = true });
-                    }
+                    return false;
                 }
-                else
-                {
-                    Process.Start(path);
-                }
+
+                Process.Start(new ProcessStartInfo("cmd", $"/c start {url.Replace(" ", "%20")}") { CreateNoWindow = createNoWindow });
             }
             catch
             {

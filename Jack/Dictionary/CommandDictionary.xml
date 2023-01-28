@@ -165,10 +165,6 @@
 			<synonym>не сохраняй данные</synonym>
 			<synonym>не сохраняй актуальные</synonym>
 		</IsNotSaveData>
-		
-		<TEST>
-			<synonym>none</synonym>
-		</TEST>
 	</BasicSystemCommands>
 	<Сurrency>
 		<USD>
@@ -202,4 +198,15 @@
 			<synonym>тоимость</synonym>
 		</Course>
 	</Сurrency>
+	<Browser>
+		<Find>
+			<synonym>найди</synonym>
+			<synonym>найти</synonym>
+			<synonym>поиск</synonym>
+			<synonym>ищи</synonym>
+			<synonym>гугл</synonym>
+			<synonym>в интернет</synonym>
+			<synonym>в браузер</synonym>
+		</Find>
+	</Browser>
 </CommandDictionary>

@@ -109,7 +109,6 @@ namespace Jack.Core.VoiceFunctions.Currency
         {
             try
             {
-                //var request = (HttpWebRequest)WebRequest.Create(currencyServiceUrl);
                 if (!WebTools.RequestTryCreate(currencyServiceUrl, out HttpWebRequest request))
                 {
                     return null;

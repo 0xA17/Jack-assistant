@@ -267,6 +267,26 @@ namespace Jack.Tools.XML
             return false;
         }
 
+        public static String GetTextIsContains(String comparableText, XElement xelement)
+        {
+            if (String.IsNullOrEmpty(comparableText) || xelement is null)
+            {
+                return String.Empty;
+            }
+
+            var lastElement = String.Empty;
+
+            foreach (var item in xelement.Elements("synonym"))
+            {
+                if (comparableText.Contains(item.Value))
+                {
+                    lastElement = item.Value;
+                }
+            }
+
+            return lastElement;
+        }
+
         /// <summary>
         /// Проверяет, содержится ли заданная программа в представленном массива элемента Xml.
         /// </summary>

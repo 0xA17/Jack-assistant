@@ -365,6 +365,34 @@
                                         </Border>
                                     </Expander>
 
+                                    <Expander Header="Поиск в интернете"
+                                              Margin="7"
+                                              Foreground="White" 
+                                              FontWeight="ExtraBlack"
+                                              BorderThickness="1"
+                                              Background="#09ffffff">
+                                        <Border BorderBrush="#3f3f46" 
+                                                BorderThickness="1" 
+                                                Background="#09ffffff">
+
+                                            <Grid>
+                                                <StackPanel Orientation="Vertical">
+                                                    <Border Margin="5" 
+                                                        Style="{StaticResource BorderTipSuccess}"
+                                                        Background="#252525">
+                                                        <TextBlock Foreground="White" 
+                                                               FontWeight="Medium"
+                                                               FontSize="14"
+                                                               Text="[Найди/поиск/загугли] [твой запрос]"
+                                                               TextWrapping="Wrap"/>
+                                                    </Border>
+                                                </StackPanel>
+      
+                                            </Grid>
+                                            
+                                        </Border>
+                                    </Expander>
+
                                 </StackPanel>
                             </Grid>
                         </Border>
