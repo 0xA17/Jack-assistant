@@ -276,7 +276,7 @@
                             Click="CloseButton_Click"
                             GotKeyboardFocus="PogramSynonyms_GotKeyboardFocus">
                         <Button.Effect>
-                            <DropShadowEffect BlurRadius="20" 
+                            <DropShadowEffect BlurRadius="7" 
                                               Color="#d1d1d1" 
                                               ShadowDepth="0"/>
                         </Button.Effect>
@@ -291,7 +291,7 @@
                             Margin="180,15,50,16"
                             Click="SaveUserDataButton_Click">
                         <Button.Effect>
-                            <DropShadowEffect BlurRadius="20" 
+                            <DropShadowEffect BlurRadius="7" 
                                               Color="#80dbff" 
                                               ShadowDepth="0"/>
                         </Button.Effect>

@@ -278,7 +278,7 @@
                             Click="CloseButton_Click"
                             GotKeyboardFocus="SiteSynonyms_GotKeyboardFocus">
                         <Button.Effect>
-                            <DropShadowEffect BlurRadius="20" 
+                            <DropShadowEffect BlurRadius="7" 
                                               Color="#d1d1d1" 
                                               ShadowDepth="0"/>
                         </Button.Effect>
@@ -292,7 +292,7 @@
                             Margin="232,16,28,15"
                             Click="SaveUserDataButton_Click">
                         <Button.Effect>
-                            <DropShadowEffect BlurRadius="20" 
+                            <DropShadowEffect BlurRadius="7" 
                                               Color="#80dbff" 
                                               ShadowDepth="0"/>
                         </Button.Effect>
@@ -306,7 +306,7 @@
                             Margin="28,16,232,15"
                             Click="DeleteSite">
                         <Button.Effect>
-                            <DropShadowEffect BlurRadius="20" 
+                            <DropShadowEffect BlurRadius="7" 
                                               Color="#ff4747" 
                                               ShadowDepth="0"/>
                         </Button.Effect>
