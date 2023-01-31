@@ -34,6 +34,11 @@ namespace Jack.Pages
             Instance = this;
         }
 
+        private void Page_Loaded(Object sender, RoutedEventArgs e)
+        {
+            SettingsPageViewModel.InitCheckIsAutoRunState(AutorunButton);
+        }
+
         public static SettingsPage GetInstance()
         {
             return Instance;

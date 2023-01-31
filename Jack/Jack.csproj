@@ -11,6 +11,7 @@
 	<PropertyGroup>
 		<StartupObject />
 		<ApplicationIcon>Assets\Icons\JackLogo.ico</ApplicationIcon>
+		<ApplicationManifest>app.manifest</ApplicationManifest>
 	</PropertyGroup>
 	<ItemGroup>
 	  <Compile Remove="Assets\Pictures\**" />

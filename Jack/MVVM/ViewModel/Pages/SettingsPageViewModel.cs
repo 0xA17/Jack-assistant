@@ -8,6 +8,7 @@ using System.Windows;
 using Jack.Dictionary.СustomCommand;
 using System.Windows.Controls.Primitives;
 using Jack.Core.ThreadUtils;
+using Jack.Core.Jack;
 
 namespace Jack.MVVM.ViewModel.Pages
 {
@@ -21,7 +22,23 @@ namespace Jack.MVVM.ViewModel.Pages
 
         public const String DataSaveButtonName = "DataSaveButton";
 
+        public const String AutorunButtonName = "AutorunButton";
+
         #endregion
+
+        public static void InitCheckIsAutoRunState(ToggleButton buttonName)
+        {
+            if (buttonName is null)
+            {
+                return;
+            }
+
+            if (CheckIsAutoRunState(buttonName))
+            {
+                buttonName.IsChecked = true;
+                ButtonStateChange(buttonName);
+            }
+        }
 
         public static void ImportUserData()
         {
@@ -58,6 +75,9 @@ namespace Jack.MVVM.ViewModel.Pages
                 case DataSaveButtonName:
                     UserCommands.IsSaveData = isChecked;
                     break;
+                case AutorunButtonName:
+                    Autorun.IsAutoRun = isChecked;
+                    break;
                 default:
                     return false;
             }
@@ -83,6 +103,9 @@ namespace Jack.MVVM.ViewModel.Pages
                     EditButtonState(sender.Name, (Boolean)sender.IsChecked);
                     break;
                 case DataSaveButtonName:
+                    EditButtonState(sender.Name, (Boolean)sender.IsChecked);
+                    break;
+                case AutorunButtonName:
                     EditButtonState(sender.Name, (Boolean)sender.IsChecked);
                     break;
                 default:

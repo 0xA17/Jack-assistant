@@ -1,5 +1,8 @@
-﻿using Jack.Core.ThreadUtils;
+﻿using Jack.Core.Jack;
+using Jack.Core.ThreadUtils;
+using Jack.MVVM.ViewModel.Pages;
 using Jack.Pages;
+using Jack.Tools.Registry;
 using Jack.Tools.StringTLS;
 using Newtonsoft.Json.Linq;
 using System;
@@ -12,6 +15,17 @@ namespace Jack.Core
     {
         public static Boolean LoadSettings()
         {
+            return true;
+        }
+
+        protected static Boolean CheckIsAutoRunState(ToggleButton buttonName)
+        {
+            if (String.IsNullOrEmpty(
+                RegistryTools.GetRegistryValue(Autorun.RegistryRunPath, Autorun.AppName)))
+            {
+                return false;
+            }
+
             return true;
         }
 

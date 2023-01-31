@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Jack.Tools.MemoryOperation;
+using System;
 using System.IO;
 
 namespace Jack.ProjectDirectory
@@ -9,10 +10,13 @@ namespace Jack.ProjectDirectory
 
         public static readonly String PDirectory;
 
+        public static readonly String CurrentAppDir;
+
         #endregion
 
         static ProjectDir()
         {
+            CurrentAppDir = ProcessTools.GetCurrentAppDir().Replace("dll", "exe");
             var appdataPath = Environment.GetEnvironmentVariable("APPDATA");
 
             if (String.IsNullOrEmpty(appdataPath))

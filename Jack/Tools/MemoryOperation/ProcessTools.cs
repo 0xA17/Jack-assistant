@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Security.Policy;
 using System.Text;
@@ -16,6 +17,16 @@ namespace Jack.Tools.MemoryOperation
         public static void TurnOffPC(Byte delay)
         {
             Process.Start("shutdown", $"/s /t {delay}");
+        }
+
+        public static String GetCurrentAppDir()
+        {
+            return Assembly.GetExecutingAssembly().Location;
+        }
+
+        public static String GetCurrentName()
+        {
+            return Assembly.GetExecutingAssembly().FullName;
         }
 
         /// <summary>
