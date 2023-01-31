@@ -50,7 +50,7 @@ namespace Jack
 
         private void ButtonMin_Click(Object sender, RoutedEventArgs e)
         {
-            Application.Current.MainWindow.WindowState = WindowState.Minimized;
+            WindowState = WindowState.Minimized;
         }
 
         private void rdMicrophoneOff_Click(Object sender, RoutedEventArgs e)

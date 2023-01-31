@@ -49,9 +49,9 @@
 			<synonym>уберись</synonym>
 			<synonym>сверни себя</synonym>
 			<synonym>сверни свое окно</synonym>
-			<synonym>скройся</synonym>
-			<synonym>свернись</synonym>
-			<synonym>спрячься</synonym>
+			<synonym>скрой</synonym>
+			<synonym>сверн</synonym>
+			<synonym>спряч</synonym>
 		</DeVisibleCommand>
 		<VisibleCommand>
 			<synonym>разверни</synonym>

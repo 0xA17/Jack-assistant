@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Security.Policy;
@@ -31,7 +32,62 @@ namespace Jack.Tools.MemoryOperation
 
             try
             {
-                Process.Start(path);
+                if (!CheckIsExe(path))
+                {
+                    StartProcessFile(path);
+                }
+                else
+                {
+                    Process.Start(path);
+                }
+            }
+            catch
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        private static Boolean CheckIsExe(String path)
+        {
+            if (String.IsNullOrEmpty(path))
+            {
+                return false;
+            }
+
+            try
+            {
+                if (!String.Equals(new FileInfo(path).Extension, ".exe", StringComparison.OrdinalIgnoreCase))
+                {
+                    return false;
+                }
+            }
+            catch
+            {
+                return false;
+            }
+
+            return true;
+        }
+
+        private static Boolean StartProcessFile(String path)
+        {
+            if (String.IsNullOrEmpty(path))
+            {
+                return false;
+            }
+
+            var process = new Process();
+
+            try
+            {
+                process.StartInfo.CreateNoWindow = true;
+                process.StartInfo.FileName = "cmd.exe";
+                process.StartInfo.Arguments = "/C " + '"' + path + '"';
+                process.StartInfo.UseShellExecute = false;
+                process.StartInfo.RedirectStandardOutput = true;
+                process.Start();
             }
             catch
             {
