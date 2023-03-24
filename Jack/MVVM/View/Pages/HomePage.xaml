@@ -300,7 +300,7 @@
                                                         <TextBlock Foreground="White" 
                                                                FontWeight="Medium"
                                                                FontSize="14"
-                                                               Text="[следущую/дальше/вперед/следующий] [музыку/музло/трек/мелодию/композицию]"
+                                                               Text="[следующую/дальше/вперед/следующий] [музыку/музло/трек/мелодию/композицию]"
                                                                TextWrapping="Wrap"/>
                                                     </Border>
                                                     <Border Margin="5" 

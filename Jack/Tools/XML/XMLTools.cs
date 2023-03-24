@@ -249,7 +249,7 @@ namespace Jack.Tools.XML
         /// <param name="comparableText">Целевая строка</param>
         /// <param name="xelement">Представляемый элемент Xml</param>
         /// <returns>Статус выполнения</returns>
-        public static Boolean TextIsContains(String comparableText, XElement xelement)
+        public static Boolean SynonymIsContains(String comparableText, XElement xelement)
         {
             if (String.IsNullOrEmpty(comparableText) || xelement is null)
             {

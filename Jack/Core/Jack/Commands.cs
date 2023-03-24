@@ -83,13 +83,13 @@ namespace Jack.Core.Dune
 
             result = result.ToLower();
 
-            if (!XMLTools.TextIsContains(result,
+            if (!XMLTools.SynonymIsContains(result,
                 CommandDictionary.Elements("BasicSystemCommands").Elements("StartRecordCommand").First()))
             {
                 return;
             }
 
-            if (XMLTools.TextIsContains(result,
+            if (XMLTools.SynonymIsContains(result,
                 CommandDictionary.Elements("BasicSystemCommands").Elements("OffPCСommands").First()))
             {
                 SpeechEngine.GiveSpeackText($"{StringTools.GiveRandText(AnswerDictionary.OffPCAnswer)}", MWInstance.DuneAnswer);
@@ -99,7 +99,7 @@ namespace Jack.Core.Dune
             {
                 var browserFindNode = CommandDictionary.Elements("Browser").Elements("Find").First();
 
-                if (XMLTools.TextIsContains(result,
+                if (XMLTools.SynonymIsContains(result,
                     browserFindNode))
                 {
                     if (BrowserTools.InitBrowserSearch(result, browserFindNode))
@@ -111,31 +111,31 @@ namespace Jack.Core.Dune
                 }
             }
 
-            if (XMLTools.TextIsContains(result,
+            if (XMLTools.SynonymIsContains(result,
                 CommandDictionary.Elements("BasicSystemCommands").Elements("MediaСommands").First()))
             {
-                if (XMLTools.TextIsContains(result,
+                if (XMLTools.SynonymIsContains(result,
                     CommandDictionary.Elements("BasicSystemCommands").Elements("NextСommands").First()))
                 {
                     MediaTools.MEDIA_NEXT_TRACK();
                     return;
                 }
 
-                if (XMLTools.TextIsContains(result,
+                if (XMLTools.SynonymIsContains(result,
                     CommandDictionary.Elements("BasicSystemCommands").Elements("PreviousСommands").First()))
                 {
                     MediaTools.MEDIA_PREV_TRACK();
                     return;
                 }
 
-                if (XMLTools.TextIsContains(result,
+                if (XMLTools.SynonymIsContains(result,
                     CommandDictionary.Elements("BasicSystemCommands").Elements("ResumeСommands").First()))
                 {
                     MediaTools.MEDIA_PLAY_PAUSE();
                     return;
                 }
 
-                if (XMLTools.TextIsContains(result,
+                if (XMLTools.SynonymIsContains(result,
                     CommandDictionary.Elements("BasicSystemCommands").Elements("StopMediaСommands").First()))
                 {
                     MediaTools.MEDIA_PLAY_PAUSE();
@@ -144,10 +144,10 @@ namespace Jack.Core.Dune
                 return;
             }
 
-            if (XMLTools.TextIsContains(result,
+            if (XMLTools.SynonymIsContains(result,
                 CommandDictionary.Elements("BasicSystemCommands").Elements("VolumeСommands").First()))
             {
-                if (XMLTools.TextIsContains(result,
+                if (XMLTools.SynonymIsContains(result,
                     CommandDictionary.Elements("BasicSystemCommands").Elements("AddСommands").First()))
                 {
                     MediaTools.AddVolume(result);
@@ -155,7 +155,7 @@ namespace Jack.Core.Dune
                     return;
                 }
 
-                if (XMLTools.TextIsContains(result,
+                if (XMLTools.SynonymIsContains(result,
                     CommandDictionary.Elements("BasicSystemCommands").Elements("RemoveСommands").First()))
                 {
                     MediaTools.RemoveVolume(result);
@@ -163,7 +163,7 @@ namespace Jack.Core.Dune
                     return;
                 }
 
-                if (XMLTools.TextIsContains(result,
+                if (XMLTools.SynonymIsContains(result,
                     CommandDictionary.Elements("BasicSystemCommands").Elements("SetСommands").First()))
                 {
                     if (!MediaTools.SetUpVolume(result))
@@ -178,7 +178,7 @@ namespace Jack.Core.Dune
                 return;
             }
 
-            if (XMLTools.TextIsContains(result,
+            if (XMLTools.SynonymIsContains(result,
                 CommandDictionary.Elements("BasicSystemCommands").Elements("StartCommand").First()))
             {
                 var сustomProgram = XMLTools.ChechIsExistProgram(result, СustomCommandDictionary.Elements("UserPrograms").Elements("Program"));
@@ -209,7 +209,7 @@ namespace Jack.Core.Dune
                     return;
                 }
 
-                if (XMLTools.TextIsContains(result,
+                if (XMLTools.SynonymIsContains(result,
                     CommandDictionary.Elements("BasicSystemCommands").Elements("CalcCommand").First()))
                 {
                     ProcessTools.StartProcess("calc.exe");
@@ -217,7 +217,7 @@ namespace Jack.Core.Dune
                     return;
                 }
             }
-            if (XMLTools.TextIsContains(result,
+            if (XMLTools.SynonymIsContains(result,
                 CommandDictionary.Elements("BasicSystemCommands").Elements("CloseCommand").First()))
             {
                 var сustomProgram = XMLTools.ChechIsExistProgram(result, СustomCommandDictionary.Elements("UserPrograms").Elements("Program"));
@@ -234,7 +234,7 @@ namespace Jack.Core.Dune
                     return;
                 }
 
-                if (XMLTools.TextIsContains(result,
+                if (XMLTools.SynonymIsContains(result,
                     CommandDictionary.Elements("BasicSystemCommands").Elements("CalcCommand").First()))
                 {
                     if (!ProcessTools.KillProcess("CalculatorApp"))
@@ -248,7 +248,7 @@ namespace Jack.Core.Dune
                 }
             }
 
-            if (XMLTools.TextIsContains(result,
+            if (XMLTools.SynonymIsContains(result,
                 CommandDictionary.Elements("BasicSystemCommands").Elements("DeVisibleCommand").First()))
             {
                 if (Invokes.UpdateWindowVisibility(MainWindow._synchronizationContext, MainWindow.GetInstance(), Visibility.Collapsed))
@@ -259,7 +259,7 @@ namespace Jack.Core.Dune
                 return;
             }
 
-            if (XMLTools.TextIsContains(result,
+            if (XMLTools.SynonymIsContains(result,
                 CommandDictionary.Elements("BasicSystemCommands").Elements("VisibleCommand").First()))
             {
                 if (Invokes.UpdateWindowVisibility(MainWindow._synchronizationContext, MainWindow.GetInstance(), Visibility.Visible))
@@ -270,7 +270,7 @@ namespace Jack.Core.Dune
                 return;
             }
 
-            if (XMLTools.TextIsContains(result,
+            if (XMLTools.SynonymIsContains(result,
                 CommandDictionary.Elements("BasicSystemCommands").Elements("OffVoiceСommands").First()))
             {
                 if (SettingsPageViewModel.EditButtonState(SettingsPageViewModel.ComandStateButtonName, false, SettingsPage.GetInstance().ComandStateButton))
@@ -281,7 +281,7 @@ namespace Jack.Core.Dune
                 return;
             }
 
-            if (XMLTools.TextIsContains(result,
+            if (XMLTools.SynonymIsContains(result,
                 CommandDictionary.Elements("Сurrency").Elements("Course").First()))
             {
                 SpeechEngine.GiveSpeackText(RateCurrency.GetRateCurrencyAnswer(result), MWInstance.DuneAnswer);
@@ -289,7 +289,7 @@ namespace Jack.Core.Dune
                 return;
             }
 
-            if (XMLTools.TextIsContains(result,
+            if (XMLTools.SynonymIsContains(result,
                 CommandDictionary.Elements("BasicSystemCommands").Elements("OnVoiceСommands").First()))
             {
                 if (SettingsPageViewModel.EditButtonState(SettingsPageViewModel.ComandStateButtonName, true, SettingsPage.GetInstance().ComandStateButton))
@@ -300,7 +300,7 @@ namespace Jack.Core.Dune
                 return;
             }
 
-            if (XMLTools.TextIsContains(result,
+            if (XMLTools.SynonymIsContains(result,
                 CommandDictionary.Elements("BasicSystemCommands").Elements("IsNotSaveData").First()))
             {
                 if (SettingsPageViewModel.EditButtonState(SettingsPageViewModel.DataSaveButtonName, false, SettingsPage.GetInstance().DataSaveButton))
@@ -311,7 +311,7 @@ namespace Jack.Core.Dune
                 return;
             }
 
-            if (XMLTools.TextIsContains(result,
+            if (XMLTools.SynonymIsContains(result,
                 CommandDictionary.Elements("BasicSystemCommands").Elements("IsSaveData").First()))
             {
                 if (SettingsPageViewModel.EditButtonState(SettingsPageViewModel.DataSaveButtonName, true, SettingsPage.GetInstance().DataSaveButton))
@@ -322,7 +322,7 @@ namespace Jack.Core.Dune
                 return;
             }
 
-            if (XMLTools.TextIsContains(result,
+            if (XMLTools.SynonymIsContains(result,
                 CommandDictionary.Elements("BasicSystemCommands").Elements("GoodbyeСommands").First()))
             {
                 SpeechEngine.GiveSpeackText(StringTools.GiveRandText(AnswerDictionary.BayAnswer), MWInstance.DuneAnswer);
@@ -330,7 +330,7 @@ namespace Jack.Core.Dune
                 Process.GetCurrentProcess().Kill();
             }
 
-            if (XMLTools.TextIsContains(result,
+            if (XMLTools.SynonymIsContains(result,
                 CommandDictionary.Elements("BasicSystemCommands").Elements("StartRecordCommand").First()) && result.Split(" ").Length == 1)
             {
                 SpeechEngine.GiveSpeackText(StringTools.GiveRandText(AnswerDictionary.HelloAnswer), MainWindow.GetInstance().DuneAnswer);

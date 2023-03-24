@@ -53,7 +53,7 @@
                                                    Foreground="White"
                                                    FontWeight="Black"
                                                    BorderBrush="Transparent" 
-                                                   Content="Автозапуск приложения&#x0a;Запуск в фоновом режиме вместе с Windows"/>
+                                                   Content="Автозапуск приложения&#x0a;Запуск программы при включении компьютера"/>
                                         </StackPanel>
                                     </StackPanel>
                                     <Grid HorizontalAlignment="Center"

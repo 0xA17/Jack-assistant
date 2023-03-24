@@ -64,7 +64,7 @@ namespace Jack.Core.VoiceFunctions.Currency
                 {
                     var tempElement = targetСurrencyNode.Elements().ElementAt(targetСurrency);
 
-                    if (XMLTools.TextIsContains(text, tempElement))
+                    if (XMLTools.SynonymIsContains(text, tempElement))
                     {
                         if (!Enum.TryParse(tempElement.Name.LocalName, out RateCurrencyType rateCurrencyType))
                         {
