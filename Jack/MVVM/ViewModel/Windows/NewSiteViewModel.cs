@@ -44,7 +44,7 @@ namespace Jack.MVVM.ViewModel.Windows
                 IsSiteItemModelAdded = false;
             }
 
-            MainWindow.GetInstance().Effect = null;
+            MainWindow.Instance.Effect = null;
             MainViewModel.IsEditSite = !MainViewModel.IsEditSite;
         }
     }

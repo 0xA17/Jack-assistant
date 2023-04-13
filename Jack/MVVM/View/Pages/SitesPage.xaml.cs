@@ -15,7 +15,7 @@ namespace Jack.Pages
         public SitesPage()
         {
             InitializeComponent();
-            DataContext = MainWindow.GetInstance().DataContext;
+            DataContext = MainWindow.Instance.DataContext;
             Instance = this;
         }
 

@@ -13,7 +13,7 @@ namespace Jack.Pages
         public ProgramsPage()
         {
             InitializeComponent();
-            DataContext = MainWindow.GetInstance().DataContext;
+            DataContext = MainWindow.Instance.DataContext;
             Instance = this;
         }
 

@@ -11,7 +11,7 @@ namespace Jack
 {
     public partial class MainWindow : Window
     {
-        private static MainWindow Instance;
+        public static MainWindow Instance { get; private set; }
         public static readonly SynchronizationContext _synchronizationContext;
 
         public MainWindow()
@@ -20,18 +20,12 @@ namespace Jack
             InitializeComponent();
             new JackCore();
             DataContext = new MainViewModel();
-            new WindowsCore();
             InitNavigateUri();
         }
 
         static MainWindow()
         {
             _synchronizationContext = SynchronizationContext.Current;
-        }
-
-        public static MainWindow GetInstance()
-        {
-            return Instance;
         }
 
         private void Window_Loaded(Object sender, RoutedEventArgs e)
@@ -41,6 +35,14 @@ namespace Jack
         }
 
         #region Обработка событий
+
+        private void Window_PreviewKeyDown(Object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Tab)
+            {
+                e.Handled = true;
+            }
+        }
 
         private void Border_MouseDown(Object sender, MouseButtonEventArgs e)
         {
@@ -55,12 +57,12 @@ namespace Jack
 
         private void rdMicrophoneOff_Click(Object sender, RoutedEventArgs e)
         {
-            MainWindowVievModel.ChangeMicrophoneMode(GetInstance(), true);
+            MainWindowVievModel.ChangeMicrophoneMode(Instance, true);
         }
 
         private void rdMicrophoneOn_Click(Object sender, RoutedEventArgs e)
         {
-            MainWindowVievModel.ChangeMicrophoneMode(GetInstance(), false);
+            MainWindowVievModel.ChangeMicrophoneMode(Instance, false);
         }
 
         #endregion

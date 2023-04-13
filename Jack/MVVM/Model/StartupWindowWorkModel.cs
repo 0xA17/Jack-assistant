@@ -29,7 +29,7 @@ namespace Jack.MVVM.Model
 
         public static void EditWindow(Window prb, TargetAction targetAction)
         {
-            MainWindow.GetInstance().Dispatcher.Invoke((Action)(() =>
+            MainWindow.Instance.Dispatcher.Invoke((Action)(() =>
             {
                 try
                 {

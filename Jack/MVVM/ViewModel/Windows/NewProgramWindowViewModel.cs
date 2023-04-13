@@ -62,7 +62,7 @@ namespace Jack.MVVM.ViewModel.Windows
                 IsProgItemModelAdded = false;
             }
 
-            MainWindow.GetInstance().Effect = null;
+            MainWindow.Instance.Effect = null;
             MainViewModel.IsEditProgram = !MainViewModel.IsEditProgram;
         }
     }

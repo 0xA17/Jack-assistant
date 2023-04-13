@@ -109,7 +109,7 @@ namespace Jack.Core.ThreadUtils
                 return;
             }
 
-            MainWindow.GetInstance().Dispatcher.Invoke((Action)(() =>
+            MainWindow.Instance.Dispatcher.Invoke((Action)(() =>
             {
                 try
                 {
@@ -126,7 +126,7 @@ namespace Jack.Core.ThreadUtils
                 return;
             }
 
-            MainWindow.GetInstance().Dispatcher.Invoke((Action)(() =>
+            MainWindow.Instance.Dispatcher.Invoke((Action)(() =>
             {
                 try
                 {

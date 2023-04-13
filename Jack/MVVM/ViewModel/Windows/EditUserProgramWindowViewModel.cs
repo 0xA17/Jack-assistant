@@ -68,7 +68,7 @@ namespace Jack.MVVM.ViewModel.Windows
             }
 
             WindowsCore.ShowOwnerWindows(new EditUserProgramWindow(progItemModel));
-            MainWindow.GetInstance().Effect = null;
+            MainWindow.Instance.Effect = null;
         }
     }
 }

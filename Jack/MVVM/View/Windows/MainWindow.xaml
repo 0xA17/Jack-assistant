@@ -18,7 +18,8 @@
         ShowInTaskbar="True"
         WindowStartupLocation="CenterScreen"
         MouseDown="Border_MouseDown"
-        Loaded="Window_Loaded">
+        Loaded="Window_Loaded"
+        PreviewKeyDown="Window_PreviewKeyDown">
     <Grid>
 
         <Border CornerRadius="17"

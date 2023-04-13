@@ -36,7 +36,7 @@ namespace Jack.Core.Dune
         {
             get
             {
-                return MainWindow.GetInstance();
+                return MainWindow.Instance;
             }
         }
         public static XElement CommandDictionary;
@@ -65,7 +65,7 @@ namespace Jack.Core.Dune
             }
             catch
             {
-                SpeechEngine.GiveSpeackText(StringTools.GiveRandText(AnswerDictionary.CommandErrorAnswer));
+                SpeechEngine.GiveSpeechText(StringTools.GiveRandText(AnswerDictionary.CommandErrorAnswer));
             }
 
             #if DEBUG
@@ -92,7 +92,7 @@ namespace Jack.Core.Dune
             if (XMLTools.SynonymIsContains(result,
                 CommandDictionary.Elements("BasicSystemCommands").Elements("OffPCСommands").First()))
             {
-                SpeechEngine.GiveSpeackText($"{StringTools.GiveRandText(AnswerDictionary.OffPCAnswer)}", MWInstance.DuneAnswer);
+                SpeechEngine.GiveSpeechText($"{StringTools.GiveRandText(AnswerDictionary.OffPCAnswer)}", MWInstance.DuneAnswer);
                 //ProcessTools.TurnOffPC();
             }
 
@@ -104,7 +104,7 @@ namespace Jack.Core.Dune
                 {
                     if (BrowserTools.InitBrowserSearch(result, browserFindNode))
                     {
-                        SpeechEngine.GiveSpeackText(StringTools.GiveRandText(AnswerDictionary.IsFound), MWInstance.DuneAnswer);
+                        SpeechEngine.GiveSpeechText(StringTools.GiveRandText(AnswerDictionary.IsFound), MWInstance.DuneAnswer);
                     }
 
                     return;
@@ -151,7 +151,7 @@ namespace Jack.Core.Dune
                     CommandDictionary.Elements("BasicSystemCommands").Elements("AddСommands").First()))
                 {
                     MediaTools.AddVolume(result);
-                    SpeechEngine.GiveSpeackText(StringTools.GiveRandText(AnswerDictionary.VolumeAnswer), MWInstance.DuneAnswer);
+                    SpeechEngine.GiveSpeechText(StringTools.GiveRandText(AnswerDictionary.VolumeAnswer), MWInstance.DuneAnswer);
                     return;
                 }
 
@@ -159,7 +159,7 @@ namespace Jack.Core.Dune
                     CommandDictionary.Elements("BasicSystemCommands").Elements("RemoveСommands").First()))
                 {
                     MediaTools.RemoveVolume(result);
-                    SpeechEngine.GiveSpeackText(StringTools.GiveRandText(AnswerDictionary.VolumeAnswer), MWInstance.DuneAnswer);
+                    SpeechEngine.GiveSpeechText(StringTools.GiveRandText(AnswerDictionary.VolumeAnswer), MWInstance.DuneAnswer);
                     return;
                 }
 
@@ -168,11 +168,11 @@ namespace Jack.Core.Dune
                 {
                     if (!MediaTools.SetUpVolume(result))
                     {
-                        SpeechEngine.GiveSpeackText(StringTools.GiveRandText(AnswerDictionary.VolumeIsBadAnswer), MWInstance.DuneAnswer);
+                        SpeechEngine.GiveSpeechText(StringTools.GiveRandText(AnswerDictionary.VolumeIsBadAnswer), MWInstance.DuneAnswer);
                         return;
                     }
 
-                    SpeechEngine.GiveSpeackText(StringTools.GiveRandText(AnswerDictionary.VolumeAnswer), MWInstance.DuneAnswer);
+                    SpeechEngine.GiveSpeechText(StringTools.GiveRandText(AnswerDictionary.VolumeAnswer), MWInstance.DuneAnswer);
                     return;
                 }
                 return;
@@ -187,11 +187,11 @@ namespace Jack.Core.Dune
                 {
                     if (!ProcessTools.StartProcess(сustomProgram.Parent.Elements("link").First().Value))
                     {
-                        SpeechEngine.GiveSpeackText($"{StringTools.GiveRandText(AnswerDictionary.IsNotLaunchAnswer)} {сustomProgram.Value}", MWInstance.DuneAnswer);
+                        SpeechEngine.GiveSpeechText($"{StringTools.GiveRandText(AnswerDictionary.IsNotLaunchAnswer)} {сustomProgram.Value}", MWInstance.DuneAnswer);
                         return;
                     }
 
-                    SpeechEngine.GiveSpeackText($"{сustomProgram.Value} {StringTools.GiveRandText(AnswerDictionary.LaunchAnswer)}", MWInstance.DuneAnswer);
+                    SpeechEngine.GiveSpeechText($"{сustomProgram.Value} {StringTools.GiveRandText(AnswerDictionary.LaunchAnswer)}", MWInstance.DuneAnswer);
                     return;
                 }
 
@@ -201,11 +201,11 @@ namespace Jack.Core.Dune
                 {
                     if (!ProcessTools.StartProcessInfo(сustomSite.Parent.Elements("link").First().Value))
                     {
-                        SpeechEngine.GiveSpeackText($"{StringTools.GiveRandText(AnswerDictionary.IsNotLaunchAnswer)} {сustomSite.Value}", MWInstance.DuneAnswer);
+                        SpeechEngine.GiveSpeechText($"{StringTools.GiveRandText(AnswerDictionary.IsNotLaunchAnswer)} {сustomSite.Value}", MWInstance.DuneAnswer);
                         return;
                     }
 
-                    SpeechEngine.GiveSpeackText($"{сustomSite.Value} {StringTools.GiveRandText(AnswerDictionary.LaunchAnswer)}", MWInstance.DuneAnswer);
+                    SpeechEngine.GiveSpeechText($"{сustomSite.Value} {StringTools.GiveRandText(AnswerDictionary.LaunchAnswer)}", MWInstance.DuneAnswer);
                     return;
                 }
 
@@ -213,7 +213,7 @@ namespace Jack.Core.Dune
                     CommandDictionary.Elements("BasicSystemCommands").Elements("CalcCommand").First()))
                 {
                     ProcessTools.StartProcess("calc.exe");
-                    SpeechEngine.GiveSpeackText($"Калькулятор {StringTools.GiveRandText(AnswerDictionary.LaunchAnswer)}", MWInstance.DuneAnswer);
+                    SpeechEngine.GiveSpeechText($"Калькулятор {StringTools.GiveRandText(AnswerDictionary.LaunchAnswer)}", MWInstance.DuneAnswer);
                     return;
                 }
             }
@@ -226,11 +226,11 @@ namespace Jack.Core.Dune
                 {
                     if (ProcessTools.CloseProgramWindow(сustomProgram.Parent.Elements("ProcessName").First().Value))
                     {
-                        SpeechEngine.GiveSpeackText($"{сustomProgram.Value} {StringTools.GiveRandText(AnswerDictionary.CloseAnswer)}", MWInstance.DuneAnswer);
+                        SpeechEngine.GiveSpeechText($"{сustomProgram.Value} {StringTools.GiveRandText(AnswerDictionary.CloseAnswer)}", MWInstance.DuneAnswer);
                         return;
                     }
 
-                    SpeechEngine.GiveSpeackText($"{сustomProgram.Value} {StringTools.GiveRandText(AnswerDictionary.IsClosedAnswer)}", MWInstance.DuneAnswer);
+                    SpeechEngine.GiveSpeechText($"{сustomProgram.Value} {StringTools.GiveRandText(AnswerDictionary.IsClosedAnswer)}", MWInstance.DuneAnswer);
                     return;
                 }
 
@@ -239,11 +239,11 @@ namespace Jack.Core.Dune
                 {
                     if (!ProcessTools.KillProcess("CalculatorApp"))
                     {
-                        SpeechEngine.GiveSpeackText($"Калькулятор {StringTools.GiveRandText(AnswerDictionary.IsClosedAnswer)}", MWInstance.DuneAnswer);
+                        SpeechEngine.GiveSpeechText($"Калькулятор {StringTools.GiveRandText(AnswerDictionary.IsClosedAnswer)}", MWInstance.DuneAnswer);
                         return;
                     }
 
-                    SpeechEngine.GiveSpeackText($"Калькулятор {StringTools.GiveRandText(AnswerDictionary.CloseAnswer)}", MWInstance.DuneAnswer);
+                    SpeechEngine.GiveSpeechText($"Калькулятор {StringTools.GiveRandText(AnswerDictionary.CloseAnswer)}", MWInstance.DuneAnswer);
                     return;
                 }
             }
@@ -251,9 +251,9 @@ namespace Jack.Core.Dune
             if (XMLTools.SynonymIsContains(result,
                 CommandDictionary.Elements("BasicSystemCommands").Elements("DeVisibleCommand").First()))
             {
-                if (Invokes.UpdateWindowVisibility(MainWindow._synchronizationContext, MainWindow.GetInstance(), Visibility.Collapsed))
+                if (Invokes.UpdateWindowVisibility(MainWindow._synchronizationContext, MainWindow.Instance, Visibility.Collapsed))
                 {
-                    SpeechEngine.GiveSpeackText("Программа свернута", MWInstance.DuneAnswer);
+                    SpeechEngine.GiveSpeechText("Программа свернута", MWInstance.DuneAnswer);
                 }
 
                 return;
@@ -262,9 +262,9 @@ namespace Jack.Core.Dune
             if (XMLTools.SynonymIsContains(result,
                 CommandDictionary.Elements("BasicSystemCommands").Elements("VisibleCommand").First()))
             {
-                if (Invokes.UpdateWindowVisibility(MainWindow._synchronizationContext, MainWindow.GetInstance(), Visibility.Visible))
+                if (Invokes.UpdateWindowVisibility(MainWindow._synchronizationContext, MainWindow.Instance, Visibility.Visible))
                 {
-                    SpeechEngine.GiveSpeackText("Программа развернута", MWInstance.DuneAnswer);
+                    SpeechEngine.GiveSpeechText("Программа развернута", MWInstance.DuneAnswer);
                 }
                 
                 return;
@@ -275,7 +275,7 @@ namespace Jack.Core.Dune
             {
                 if (SettingsPageViewModel.EditButtonState(SettingsPageViewModel.ComandStateButtonName, false, SettingsPage.GetInstance().ComandStateButton))
                 {
-                    SpeechEngine.GiveSpeackText(StringTools.GiveRandText(AnswerDictionary.SilentAnswer), MWInstance.DuneAnswer);
+                    SpeechEngine.GiveSpeechText(StringTools.GiveRandText(AnswerDictionary.SilentAnswer), MWInstance.DuneAnswer);
                 }
 
                 return;
@@ -284,7 +284,7 @@ namespace Jack.Core.Dune
             if (XMLTools.SynonymIsContains(result,
                 CommandDictionary.Elements("Сurrency").Elements("Course").First()))
             {
-                SpeechEngine.GiveSpeackText(RateCurrency.GetRateCurrencyAnswer(result), MWInstance.DuneAnswer);
+                SpeechEngine.GiveSpeechText(RateCurrency.GetRateCurrencyAnswer(result), MWInstance.DuneAnswer);
 
                 return;
             }
@@ -294,7 +294,7 @@ namespace Jack.Core.Dune
             {
                 if (SettingsPageViewModel.EditButtonState(SettingsPageViewModel.ComandStateButtonName, true, SettingsPage.GetInstance().ComandStateButton))
                 {
-                    SpeechEngine.GiveSpeackText(StringTools.GiveRandText(AnswerDictionary.OkeyAnswer), MWInstance.DuneAnswer);
+                    SpeechEngine.GiveSpeechText(StringTools.GiveRandText(AnswerDictionary.OkeyAnswer), MWInstance.DuneAnswer);
                 }
 
                 return;
@@ -305,7 +305,7 @@ namespace Jack.Core.Dune
             {
                 if (SettingsPageViewModel.EditButtonState(SettingsPageViewModel.DataSaveButtonName, false, SettingsPage.GetInstance().DataSaveButton))
                 {
-                    SpeechEngine.GiveSpeackText(StringTools.GiveRandText(AnswerDictionary.OkeyAnswer), MWInstance.DuneAnswer);
+                    SpeechEngine.GiveSpeechText(StringTools.GiveRandText(AnswerDictionary.OkeyAnswer), MWInstance.DuneAnswer);
                 }
 
                 return;
@@ -316,7 +316,7 @@ namespace Jack.Core.Dune
             {
                 if (SettingsPageViewModel.EditButtonState(SettingsPageViewModel.DataSaveButtonName, true, SettingsPage.GetInstance().DataSaveButton))
                 {
-                    SpeechEngine.GiveSpeackText(StringTools.GiveRandText(AnswerDictionary.OkeyAnswer), MWInstance.DuneAnswer);
+                    SpeechEngine.GiveSpeechText(StringTools.GiveRandText(AnswerDictionary.OkeyAnswer), MWInstance.DuneAnswer);
                 }
 
                 return;
@@ -325,7 +325,7 @@ namespace Jack.Core.Dune
             if (XMLTools.SynonymIsContains(result,
                 CommandDictionary.Elements("BasicSystemCommands").Elements("GoodbyeСommands").First()))
             {
-                SpeechEngine.GiveSpeackText(StringTools.GiveRandText(AnswerDictionary.BayAnswer), MWInstance.DuneAnswer);
+                SpeechEngine.GiveSpeechText(StringTools.GiveRandText(AnswerDictionary.BayAnswer), MWInstance.DuneAnswer);
                 Thread.Sleep(2000);
                 Process.GetCurrentProcess().Kill();
             }
@@ -333,11 +333,11 @@ namespace Jack.Core.Dune
             if (XMLTools.SynonymIsContains(result,
                 CommandDictionary.Elements("BasicSystemCommands").Elements("StartRecordCommand").First()) && result.Split(" ").Length == 1)
             {
-                SpeechEngine.GiveSpeackText(StringTools.GiveRandText(AnswerDictionary.HelloAnswer), MainWindow.GetInstance().DuneAnswer);
+                SpeechEngine.GiveSpeechText(StringTools.GiveRandText(AnswerDictionary.HelloAnswer), MainWindow.Instance.DuneAnswer);
                 return;
             }
 
-            SpeechEngine.GiveSpeackText(StringTools.GiveRandText(AnswerDictionary.CommandNotFound), MainWindow.GetInstance().DuneAnswer);
+            SpeechEngine.GiveSpeechText(StringTools.GiveRandText(AnswerDictionary.CommandNotFound), MainWindow.Instance.DuneAnswer);
         }
 
         public static Boolean AddСustomCommand(

@@ -27,7 +27,7 @@ namespace Jack.Core
                 return false;
             }
 
-            var mainWindowInstance = MainWindow.GetInstance();
+            var mainWindowInstance = MainWindow.Instance;
 
             if (mainWindowInstance is null)
             {

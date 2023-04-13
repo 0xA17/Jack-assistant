@@ -30,8 +30,8 @@ namespace Jack.Core.Dune
 
         static SpeechEngine()
         {
-            SetDefoltInputDevice();
-            SetDefoltOutDevice();
+            SetDefaultInputDevice();
+            SetDefaultOutDevice();
 
             _waveIn = InitAudioInput();
             _voiceRecognition = InitSpeechToText();
@@ -232,7 +232,7 @@ namespace Jack.Core.Dune
             return true;
         }
 
-        public static Boolean SetDefoltInputDevice()
+        public static Boolean SetDefaultInputDevice()
         {
             try
             {
@@ -246,7 +246,7 @@ namespace Jack.Core.Dune
             return true;
         }
 
-        public static Boolean SetDefoltOutDevice()
+        public static Boolean SetDefaultOutDevice()
         {
             try
             {
@@ -275,7 +275,7 @@ namespace Jack.Core.Dune
             return true;
         }
 
-        public static void GiveSpeackText(String answer, TextBlock textBlock)
+        public static void GiveSpeechText(String answer, TextBlock textBlock)
         {
             if (String.IsNullOrEmpty(answer) || 
                 textBlock is null)
@@ -290,16 +290,16 @@ namespace Jack.Core.Dune
 
             var tmpTheard = new Thread(() =>
             {
-                SpeackText(answer, textBlock);
+                SpeechText(answer, textBlock);
             });
 
             tmpTheard.IsBackground = true;
             tmpTheard.Start();
         }
 
-        public static void GiveSpeackText(String answer)
+        public static void GiveSpeechText(String answer)
         {
-            var textBlock = MainWindow.GetInstance().DuneAnswer;
+            var textBlock = MainWindow.Instance.DuneAnswer;
 
             if (String.IsNullOrEmpty(answer) || textBlock is null)
             {
@@ -308,14 +308,14 @@ namespace Jack.Core.Dune
 
             var tmpTheard = new Thread(() =>
             {
-                SpeackText(answer, textBlock);
+                SpeechText(answer, textBlock);
             });
 
             tmpTheard.IsBackground = true;
             tmpTheard.Start();
         }
 
-        private static void SpeackText(String text, TextBlock textBlock)
+        private static void SpeechText(String text, TextBlock textBlock)
         {
             if (String.IsNullOrEmpty(text) || 
                 textBlock is null)

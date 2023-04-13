@@ -52,7 +52,7 @@ namespace Jack.MVVM.ViewModel.Windows
             }
 
             WindowsCore.ShowOwnerWindows(new EditUserSiteWindow(siteItemModel));
-            MainWindow.GetInstance().Effect = null;
+            MainWindow.Instance.Effect = null;
         }
     }
 }

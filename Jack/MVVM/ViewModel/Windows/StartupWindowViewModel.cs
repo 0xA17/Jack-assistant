@@ -16,11 +16,11 @@ namespace Jack.MVVM.ViewModel.Windows
                 SpeechEngine.InitSpeaker();
                 Thread.Sleep(2500);
 
-                if (!ChangeTargetWindow(StartupWindow.Instance, MainWindow.GetInstance()))
+                if (!ChangeTargetWindow(StartupWindow.Instance, MainWindow.Instance))
                 {
                     System.Diagnostics.Process.GetCurrentProcess().Kill();
                 }
-                SpeechEngine.GiveSpeackText(StringTools.GiveRandText(AnswerDictionary.HelloAnswer), MainWindow.GetInstance().DuneAnswer);
+                SpeechEngine.GiveSpeechText(StringTools.GiveRandText(AnswerDictionary.HelloAnswer), MainWindow.Instance.DuneAnswer);
             });
 
             theard.SetApartmentState(ApartmentState.STA);

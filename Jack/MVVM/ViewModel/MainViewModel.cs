@@ -15,8 +15,6 @@ namespace Jack.MVVM.ViewModel
     {
         #region Переменные
 
-        private static MainViewModel Instance;
-
         public RelayCommand<RadioButtonSelected> RadioButtonSelect { get; set; }
 
         public Core.Command.RelayCommand CloseWindow { get; set; }
@@ -25,7 +23,7 @@ namespace Jack.MVVM.ViewModel
         {
             get
             {
-                var mainWindowInstance = MainWindow.GetInstance();
+                var mainWindowInstance = MainWindow.Instance;
 
                 return new Frame[]
                 {
@@ -101,7 +99,6 @@ namespace Jack.MVVM.ViewModel
 
         public MainViewModel()
         {
-            Instance = this;
             ProgItem = new ObservableCollection<ProgItemModel>();
             SiteItem = new ObservableCollection<SiteItemModel>();
 
@@ -127,11 +124,6 @@ namespace Jack.MVVM.ViewModel
             {
                 InitCloseWindow();
             });
-        }
-
-        public static MainViewModel GetInstance()
-        {
-            return Instance;
         }
 
         public static Boolean InitUserProgram()
